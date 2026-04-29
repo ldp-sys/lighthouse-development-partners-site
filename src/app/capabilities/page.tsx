@@ -31,7 +31,7 @@ export default function CapabilitiesPage() {
       <Section className="bg-sand">
         <div className="mb-10">
           <Eyebrow>Development Process</Eyebrow>
-          <h2 className="font-serif text-4xl font-semibold text-navy sm:text-5xl">
+          <h2 className="font-serif text-3xl font-bold leading-tight text-navy sm:text-4xl">
             From feasibility through stewardship.
           </h2>
         </div>
@@ -40,7 +40,7 @@ export default function CapabilitiesPage() {
       <Section>
         <div className="mb-10">
           <Eyebrow>Complexity We Handle</Eyebrow>
-          <h2 className="font-serif text-4xl font-semibold text-navy sm:text-5xl">
+          <h2 className="font-serif text-3xl font-bold leading-tight text-navy sm:text-4xl">
             Development constraints translated into executable workstreams.
           </h2>
         </div>

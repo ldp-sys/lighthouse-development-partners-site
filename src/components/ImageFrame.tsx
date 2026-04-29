@@ -1,11 +1,11 @@
 import { RenderedSvgFrame } from "@/components/RenderedSvgFrame";
 
-type PlaceholderImageProps = {
+type ImageFrameProps = {
   src: string;
   alt: string;
   label?: string;
 };
 
-export function PlaceholderImage({ src, alt, label }: PlaceholderImageProps) {
+export function ImageFrame({ src, alt, label }: ImageFrameProps) {
   return <RenderedSvgFrame alt={alt} label={label} src={src} />;
 }

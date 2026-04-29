@@ -23,7 +23,7 @@ export default function InvestorPortalPage() {
       <Section>
         <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
           <div>
-            <h2 className="font-serif text-4xl font-semibold text-navy">
+            <h2 className="font-serif text-3xl font-bold leading-tight text-navy">
               Secure investor access is being integrated into the new Lighthouse
               Development Partners platform.
             </h2>

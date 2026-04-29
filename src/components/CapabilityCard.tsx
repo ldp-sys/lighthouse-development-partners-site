@@ -5,7 +5,7 @@ import { Icon } from "@/components/Icon";
 export function CapabilityCard({ capability }: { capability: Capability }) {
   return (
     <Card className="h-full">
-      <div className="flex h-11 w-11 items-center justify-center rounded-card bg-teal/10 text-teal">
+      <div className="flex h-11 w-11 items-center justify-center rounded-card bg-sand text-teal">
         <Icon aria-hidden className="h-5 w-5" name={capability.icon} />
       </div>
       <h3 className="mt-5 font-serif text-2xl font-semibold text-navy">

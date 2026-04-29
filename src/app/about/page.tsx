@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { CapabilityCard } from "@/components/CapabilityCard";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Hero } from "@/components/Hero";
-import { Icon } from "@/components/Icon";
 import { Section } from "@/components/Section";
 import { site } from "@/data/site";
 import { pageMetadata } from "@/lib/metadata";
@@ -23,81 +23,91 @@ export default function AboutPage() {
       />
 
       <Section>
-        <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
-          <div>
-            <Eyebrow>Company Overview</Eyebrow>
-            <h2 className="font-serif text-4xl font-semibold text-navy">
-              Strategic development with a community and execution lens.
-            </h2>
+        <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
+          <div className="relative overflow-hidden rounded-card border border-border bg-white shadow-soft">
+            <Image
+              alt="Architectural plans used in development planning"
+              className="aspect-[4/3] h-full w-full object-cover"
+              height={1600}
+              priority
+              src="/images/about-blueprints-stock.jpg"
+              width={1280}
+            />
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/80 to-transparent p-6 text-white">
+              <p className="max-w-sm text-sm font-semibold leading-6">
+                Site strategy, design coordination, finance, approvals, and delivery.
+              </p>
+            </div>
           </div>
-          <p className="text-lg leading-9 text-slate">{site.about.overview}</p>
+          <div>
+            <Eyebrow>Platform</Eyebrow>
+            <h2 className="font-serif text-3xl font-bold leading-tight text-navy sm:text-4xl">
+              Development work is strongest when the project logic is clear.
+            </h2>
+            <p className="mt-5 text-lg leading-9 text-slate">
+              {site.about.overview}
+            </p>
+          </div>
         </div>
       </Section>
 
       <Section className="bg-sand">
-        <div className="mb-10">
-          <Eyebrow>Development Philosophy</Eyebrow>
-          <h2 className="font-serif text-4xl font-semibold text-navy sm:text-5xl">
-            How Lighthouse approaches complex real estate work.
+        <div className="mb-10 max-w-3xl">
+          <Eyebrow>Capabilities</Eyebrow>
+          <h2 className="font-serif text-3xl font-bold leading-tight text-navy sm:text-4xl">
+            The work behind a deliverable project.
           </h2>
+          <p className="mt-4 text-base leading-8 text-slate">
+            Lighthouse keeps the core development functions close: feasibility,
+            public-sector alignment, capital strategy, design coordination,
+            construction readiness, and long-term stewardship.
+          </p>
         </div>
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {site.about.philosophy.map((item) => (
+          {site.capabilitiesPage.capabilities.slice(0, 6).map((item) => (
             <CapabilityCard capability={item} key={item.title} />
           ))}
         </div>
       </Section>
 
       <Section>
-        <div className="mb-10">
-          <Eyebrow>Values</Eyebrow>
-          <h2 className="font-serif text-4xl font-semibold text-navy sm:text-5xl">
-            Practical principles for partner-facing development.
-          </h2>
-        </div>
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {site.about.values.map((value) => (
-            <div
-              className="rounded-card border border-border bg-white p-6 shadow-line"
-              key={value.title}
-            >
-              <div className="flex h-11 w-11 items-center justify-center rounded-card bg-teal/10 text-teal">
-                <Icon aria-hidden className="h-5 w-5" name={value.icon} />
-              </div>
-              <h3 className="mt-5 font-serif text-2xl font-semibold text-navy">
-                {value.title}
-              </h3>
-              <p className="mt-3 text-sm leading-7 text-slate">
-                {value.description}
-              </p>
-              {value.isPlaceholder ? (
-                <p className="mt-4 text-xs font-semibold uppercase tracking-[0.14em] text-gold">
-                  Internal confirmation pending
+        <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
+          <div>
+            <Eyebrow>Process</Eyebrow>
+            <h2 className="font-serif text-3xl font-bold leading-tight text-navy sm:text-4xl">
+              From feasible site to financed project.
+            </h2>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {site.capabilitiesPage.process.slice(0, 6).map((step, index) => (
+              <div
+                className="rounded-card border border-border bg-white p-5 shadow-line"
+                key={step.title}
+              >
+                <p className="text-xs font-bold uppercase tracking-[0.14em] text-harbor">
+                  {String(index + 1).padStart(2, "0")}
                 </p>
-              ) : null}
-            </div>
-          ))}
+                <h3 className="mt-3 font-serif text-2xl font-semibold text-navy">
+                  {step.title}
+                </h3>
+                <p className="mt-2 text-sm leading-7 text-slate">
+                  {step.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </Section>
 
       <Section className="bg-warm">
-        <div className="rounded-card border border-border bg-white p-8 shadow-line">
-          <Eyebrow>Operating Model</Eyebrow>
-          <h2 className="font-serif text-4xl font-semibold text-navy">
-            {site.about.operatingModel.title}
+        <div className="mb-10 max-w-3xl">
+          <Eyebrow>Milestones</Eyebrow>
+          <h2 className="font-serif text-3xl font-bold leading-tight text-navy sm:text-4xl">
+            Public-facing progress.
           </h2>
-          <p className="mt-4 max-w-4xl text-base leading-8 text-slate">
-            {site.about.operatingModel.body}
+          <p className="mt-4 text-base leading-8 text-slate">
+            Selected moments that are appropriate for the public site today.
           </p>
-        </div>
-      </Section>
-
-      <Section className="bg-sand">
-        <div className="mb-10">
-          <Eyebrow>Timeline</Eyebrow>
-          <h2 className="font-serif text-4xl font-semibold text-navy sm:text-5xl">
-            Milestones to refine with approved company history.
-          </h2>
         </div>
         <div className="grid gap-4">
           {site.about.milestones.map((milestone, index) => (
@@ -115,11 +125,6 @@ export default function AboutPage() {
                 <p className="mt-2 text-sm leading-7 text-slate">
                   {milestone.description}
                 </p>
-                {milestone.isPlaceholder ? (
-                  <p className="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-gold">
-                    Placeholder
-                  </p>
-                ) : null}
               </div>
             </div>
           ))}

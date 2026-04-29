@@ -12,8 +12,6 @@ import { StatCard } from "@/components/StatCard";
 import { site } from "@/data/site";
 
 export default function HomePage() {
-  const featuredProject = site.projects[0];
-
   return (
     <>
       <Hero
@@ -30,7 +28,7 @@ export default function HomePage() {
         <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
           <div>
             <Eyebrow>{site.home.credibility.eyebrow}</Eyebrow>
-            <h2 className="font-serif text-4xl font-semibold text-navy sm:text-5xl">
+            <h2 className="font-serif text-3xl font-bold leading-tight text-navy sm:text-4xl">
               {site.home.credibility.title}
             </h2>
           </div>
@@ -44,15 +42,15 @@ export default function HomePage() {
         <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
             <Eyebrow>What We Build</Eyebrow>
-            <h2 className="font-serif text-4xl font-semibold text-navy sm:text-5xl">
-              Development categories with civic and financial discipline.
+            <h2 className="font-serif text-3xl font-bold leading-tight text-navy sm:text-4xl">
+              What Lighthouse builds.
             </h2>
           </div>
           <Link
             className="inline-flex items-center gap-2 text-sm font-bold text-harbor hover:text-teal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
-            href="/capabilities"
+            href="/about"
           >
-            Explore capabilities
+            Explore the platform
             <ArrowRight aria-hidden className="h-4 w-4" />
           </Link>
         </div>
@@ -65,24 +63,28 @@ export default function HomePage() {
 
       <Section>
         <div className="mb-10">
-          <Eyebrow>Featured Project</Eyebrow>
-          <h2 className="font-serif text-4xl font-semibold text-navy sm:text-5xl">
-            Reserve at Eastwood
+          <Eyebrow>Current Project Work</Eyebrow>
+          <h2 className="font-serif text-3xl font-bold leading-tight text-navy sm:text-4xl">
+            Current affordable housing communities.
           </h2>
           <p className="mt-4 max-w-3xl text-base leading-8 text-slate">
-            A Fort Myers affordable housing community planned for 288 homes,
-            multiple AMI bands, resident amenities, and sustainable design
-            specifications.
+            Reserve at Eastwood and Reserve at Franklin Park show the platform
+            at work: real communities, clear programs, current project views, and
+            a practical path from finance to delivery.
           </p>
         </div>
-        <ProjectCard project={featuredProject} />
+        <div className="grid gap-6 lg:grid-cols-2">
+          {site.projects.map((project) => (
+            <ProjectCard key={project.slug} project={project} />
+          ))}
+        </div>
       </Section>
 
       <Section className="bg-warm">
         <div className="mb-10">
-          <Eyebrow>Partnership Engine</Eyebrow>
-          <h2 className="font-serif text-4xl font-semibold text-navy sm:text-5xl">
-            Coordinating the partners that make complex projects possible.
+          <Eyebrow>Partnerships</Eyebrow>
+          <h2 className="font-serif text-3xl font-bold leading-tight text-navy sm:text-4xl">
+            Coordinating the work that moves projects forward.
           </h2>
         </div>
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
@@ -91,7 +93,7 @@ export default function HomePage() {
               className="rounded-card border border-border bg-white p-6 shadow-line"
               key={partner.title}
             >
-              <div className="flex h-11 w-11 items-center justify-center rounded-card bg-gold/15 text-harbor">
+              <div className="flex h-11 w-11 items-center justify-center rounded-card bg-sand text-harbor">
                 <Icon aria-hidden className="h-5 w-5" name={partner.icon} />
               </div>
               <h3 className="mt-5 font-serif text-2xl font-semibold text-navy">
@@ -107,9 +109,9 @@ export default function HomePage() {
 
       <Section className="bg-navy text-white">
         <div className="mb-10">
-          <Eyebrow>Impact Snapshot</Eyebrow>
-          <h2 className="font-serif text-4xl font-semibold text-white sm:text-5xl">
-            Verified metrics, no inflated claims.
+          <Eyebrow className="text-gold">Impact Snapshot</Eyebrow>
+          <h2 className="font-serif text-3xl font-bold leading-tight text-white sm:text-4xl">
+            Current project metrics.
           </h2>
         </div>
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -123,8 +125,8 @@ export default function HomePage() {
         <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
             <Eyebrow>Latest News</Eyebrow>
-            <h2 className="font-serif text-4xl font-semibold text-navy sm:text-5xl">
-              Milestones and platform updates.
+            <h2 className="font-serif text-3xl font-bold leading-tight text-navy sm:text-4xl">
+              Public project updates.
             </h2>
           </div>
           <Link
@@ -135,8 +137,8 @@ export default function HomePage() {
             <ArrowRight aria-hidden className="h-4 w-4" />
           </Link>
         </div>
-        <div className="grid gap-6 lg:grid-cols-3">
-          {site.news.map((article) => (
+        <div className="grid max-w-3xl gap-6">
+          {site.news.slice(0, 3).map((article) => (
             <NewsCard article={article} key={article.slug} />
           ))}
         </div>

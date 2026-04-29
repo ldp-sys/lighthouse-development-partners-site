@@ -153,7 +153,7 @@ export function ContactForm({ inquiryTypes }: ContactFormProps) {
         <Button type="submit">Prepare Email Inquiry</Button>
         {submitted ? (
           <a
-            className="inline-flex min-h-11 items-center justify-center rounded-card border border-harbor/20 bg-warm px-5 py-2.5 text-sm font-semibold text-navy hover:border-teal hover:text-teal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+            className="inline-flex min-h-11 items-center justify-center rounded-card border border-border bg-warm px-5 py-2.5 text-sm font-semibold text-navy hover:border-teal hover:text-teal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
             href={mailtoHref}
           >
             Open email draft
@@ -164,11 +164,6 @@ export function ContactForm({ inquiryTypes }: ContactFormProps) {
         <p className="mt-4 text-sm leading-6 text-slate">
           Your message has been prepared as an email draft. This static website
           does not store or transmit form submissions.
-        </p>
-      ) : null}
-      {site.company.emailIsPlaceholder ? (
-        <p className="mt-4 text-xs font-semibold uppercase tracking-[0.14em] text-gold">
-          TODO: Confirm official contact email before launch.
         </p>
       ) : null}
     </form>

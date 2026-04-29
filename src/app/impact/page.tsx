@@ -7,7 +7,9 @@ import { StatCard } from "@/components/StatCard";
 import { site } from "@/data/site";
 import { pageMetadata } from "@/lib/metadata";
 
-const reserve = site.projects[0];
+const affordableProjects = site.projects.filter(
+  (project) => project.type === "Affordable Housing"
+);
 
 export const metadata: Metadata = pageMetadata({
   title: "Impact",
@@ -30,7 +32,7 @@ export default function ImpactPage() {
               className="rounded-card border border-border bg-white p-6 shadow-line"
               key={pillar.title}
             >
-              <div className="flex h-11 w-11 items-center justify-center rounded-card bg-teal/10 text-teal">
+              <div className="flex h-11 w-11 items-center justify-center rounded-card bg-sand text-teal">
                 <Icon aria-hidden className="h-5 w-5" name={pillar.icon} />
               </div>
               <h2 className="mt-5 font-serif text-2xl font-semibold text-navy">
@@ -46,31 +48,38 @@ export default function ImpactPage() {
       <Section className="bg-sand">
         <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
-            <Eyebrow>Reserve at Eastwood Impact</Eyebrow>
-            <h2 className="font-serif text-4xl font-semibold text-navy sm:text-5xl">
+            <Eyebrow>Current Affordable Housing Work</Eyebrow>
+            <h2 className="font-serif text-3xl font-bold leading-tight text-navy sm:text-4xl">
               Housing access, resident amenities, and sustainable specifications.
             </h2>
           </div>
           <div className="grid gap-5 text-base leading-8 text-slate">
             <p>
-              {reserve.name} will deliver {reserve.stats[0].value} affordable
-              homes in {reserve.location}, serving households across{" "}
-              {reserve.stats[1].value} AMI bands.
+              Lighthouse's current Fort Myers affordable housing work includes
+              Reserve at Eastwood and Reserve at Franklin Park, totaling 384
+              affordable homes across communities serving households from 30%
+              to 70% AMI.
             </p>
             <p>
-              Planned amenities include a clubhouse, on-site management and
-              maintenance, co-working stations, fitness, media and community
-              space, pool and grill area, pickleball, dog park, and playground.
+              The program includes one-, two-, three-, and four-bedroom homes
+              across the portfolio, with resident amenities such as clubhouses,
+              on-site management, fitness and business spaces, outdoor
+              recreation, and practical community gathering areas.
             </p>
-            <p>{reserve.sustainability}</p>
+            <p>
+              Eastwood is designed to EnergyStar and NGBS specifications.
+              Franklin Park is planned to NGBS specifications. Certification
+              status and final performance data should be confirmed at
+              completion.
+            </p>
           </div>
         </div>
       </Section>
       <Section>
         <div className="mb-10">
           <Eyebrow>Metrics</Eyebrow>
-          <h2 className="font-serif text-4xl font-semibold text-navy sm:text-5xl">
-            Confirmed data separated from internal placeholders.
+          <h2 className="font-serif text-3xl font-bold leading-tight text-navy sm:text-4xl">
+            Current project metrics.
           </h2>
         </div>
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -82,15 +91,30 @@ export default function ImpactPage() {
       <Section className="bg-warm">
         <div className="rounded-card border border-border bg-white p-8 shadow-line">
           <Eyebrow>Resident-Centered Planning</Eyebrow>
-          <h2 className="font-serif text-4xl font-semibold text-navy">
+          <h2 className="font-serif text-3xl font-bold leading-tight text-navy">
             Amenities that support daily life without overstating services.
           </h2>
           <p className="mt-4 max-w-4xl text-base leading-8 text-slate">
-            Lighthouse's public project information for Reserve at Eastwood
-            focuses on practical community amenities and durable unit features.
-            This site does not claim resident services, programs, or outcomes
-            that have not been confirmed for public release.
+            Lighthouse's current project materials focus on practical amenities,
+            durable unit features, and resident services where those services
+            are included in project planning. This site avoids claiming outcomes
+            that should be measured and confirmed after delivery.
           </p>
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            {affordableProjects.map((project) => (
+              <div
+                className="rounded-card border border-border bg-warm p-5"
+                key={project.slug}
+              >
+                <h3 className="font-serif text-2xl font-semibold text-navy">
+                  {project.name}
+                </h3>
+                <p className="mt-2 text-sm leading-7 text-slate">
+                  {project.summary}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </Section>
     </>

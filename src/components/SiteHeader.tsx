@@ -6,39 +6,36 @@ import { MobileNav } from "@/components/MobileNav";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-border/80 bg-warm/92 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-harbor text-white shadow-[0_12px_36px_rgba(7,23,97,0.12)] backdrop-blur">
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-[linear-gradient(110deg,rgba(255,255,255,0.08),transparent_34%,rgba(183,154,86,0.14))]"
+      />
       <a
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-card focus:bg-gold focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-navy"
         href="#main-content"
       >
         Skip to content
       </a>
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto flex h-24 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Link
           aria-label="Lighthouse Development Partners home"
-          className="inline-flex items-center gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+          className="inline-flex items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
           href="/"
         >
           <Image
             alt=""
-            className="h-11 w-11"
-            height="44"
-            src={site.company.mark}
-            width="44"
+            className="h-auto w-[156px] max-w-[48vw] sm:w-[170px]"
+            height={845}
+            priority
+            src={site.company.logo}
+            width={1600}
           />
-          <span className="hidden min-w-0 flex-col sm:flex">
-            <span className="font-serif text-xl font-semibold leading-none text-navy">
-              Lighthouse
-            </span>
-            <span className="mt-1 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-slate">
-              Development Partners
-            </span>
-          </span>
         </Link>
         <nav aria-label="Primary navigation" className="hidden items-center gap-1 lg:flex">
           {site.nav.map((item) => (
             <Link
-              className="rounded-card px-3 py-2 text-sm font-semibold text-harbor hover:bg-sand hover:text-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+              className="rounded-card px-3 py-2 text-sm font-semibold text-white/82 hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
               href={item.href}
               key={item.href}
             >
@@ -47,7 +44,7 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="hidden lg:block">
-          <Button href="/investor-portal" variant="secondary">
+          <Button href="/investor-portal" variant="light">
             Investor Portal
           </Button>
         </div>

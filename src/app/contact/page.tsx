@@ -34,13 +34,13 @@ export default function ContactPage() {
               {site.company.address.postalCode}
             </address>
             <p className="mt-5 text-sm leading-7 text-slate">
-              Contact email placeholder:{" "}
-              <span className="font-semibold text-charcoal">
+              Email:{" "}
+              <a
+                className="font-semibold text-charcoal hover:text-teal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
+                href={`mailto:${site.company.email}`}
+              >
                 {site.company.email}
-              </span>
-            </p>
-            <p className="mt-4 text-xs font-semibold uppercase tracking-[0.14em] text-gold">
-              {site.contactPage.emailTodo}
+              </a>
             </p>
           </div>
           <ContactForm inquiryTypes={site.contactPage.inquiryTypes} />

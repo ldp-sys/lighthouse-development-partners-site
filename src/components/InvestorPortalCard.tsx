@@ -11,8 +11,8 @@ export function InvestorPortalCard() {
           <input
             className="min-h-12 cursor-not-allowed rounded-card border border-border bg-sand px-3 text-base text-slate"
             disabled
-            placeholder="Portal credentials are not collected here"
             type="text"
+            defaultValue="Existing portal credentials only"
           />
         </label>
         <label className="grid gap-2 text-sm font-semibold text-charcoal">
@@ -20,8 +20,8 @@ export function InvestorPortalCard() {
           <input
             className="min-h-12 cursor-not-allowed rounded-card border border-border bg-sand px-3 text-base text-slate"
             disabled
-            placeholder="Do not enter passwords on this page"
             type="password"
+            defaultValue="not-collected"
           />
         </label>
       </div>
@@ -34,11 +34,6 @@ export function InvestorPortalCard() {
       <p className="mt-4 text-sm leading-6 text-slate">
         {site.investorPortalPage.securityNote}
       </p>
-      {site.company.investorPortalUrlIsPlaceholder ? (
-        <p className="mt-4 text-xs font-semibold uppercase tracking-[0.14em] text-gold">
-          TODO: Confirm final investor portal destination.
-        </p>
-      ) : null}
     </div>
   );
 }

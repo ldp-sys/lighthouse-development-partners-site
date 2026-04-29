@@ -12,21 +12,23 @@ import { StatCard } from "@/components/StatCard";
 import { site } from "@/data/site";
 import { pageMetadata } from "@/lib/metadata";
 
-const project = site.projects[0];
+const project = site.projects.find(
+  (item) => item.slug === "reserve-at-franklin-park"
+)!;
 
 export const metadata: Metadata = pageMetadata({
-  title: "Reserve at Eastwood",
+  title: "Reserve at Franklin Park",
   description:
-    "Reserve at Eastwood is a 288-unit affordable housing community in Fort Myers serving 30%, 50%, 60%, and 70% AMI households.",
-  path: "/projects/reserve-at-eastwood",
+    "Reserve at Franklin Park is a planned 96-unit affordable housing community in Fort Myers' Dunbar neighborhood.",
+  path: "/projects/reserve-at-franklin-park",
   image: project.image
 });
 
-export default function ReserveAtEastwoodPage() {
+export default function ReserveAtFranklinParkPage() {
   return (
     <>
       <Hero
-        description="288 affordable homes serving 30%, 50%, 60%, and 70% AMI households in Fort Myers, Florida."
+        description="96 affordable homes planned for households at or below 70% AMI in Fort Myers' Dunbar neighborhood."
         eyebrow={project.location}
         image={project.image}
         imageAlt={project.imageAlt}
@@ -53,10 +55,18 @@ export default function ReserveAtEastwoodPage() {
           <div>
             <Eyebrow>Project Narrative</Eyebrow>
             <h2 className="font-serif text-3xl font-bold leading-tight text-navy sm:text-4xl">
-              Affordable housing planned for a range of household sizes.
+              Family-sized affordable housing in the Dunbar neighborhood.
             </h2>
           </div>
-          <p className="text-lg leading-9 text-slate">{project.description}</p>
+          <div className="grid gap-5 text-lg leading-9 text-slate">
+            <p>{project.description}</p>
+            <p>
+              The plan replaces a long-standing blighted use with new housing,
+              a clubhouse, resident amenities, and a program intended to support
+              household stability. Company materials identify financial closing
+              as targeted for Q2 2026, with construction activity to follow.
+            </p>
+          </div>
         </div>
       </Section>
 
@@ -64,10 +74,10 @@ export default function ReserveAtEastwoodPage() {
         <div className="mb-10">
           <Eyebrow>Project Views</Eyebrow>
           <h2 className="font-serif text-3xl font-bold leading-tight text-navy sm:text-4xl">
-            Reserve at Eastwood.
+            Reserve at Franklin Park.
           </h2>
           <p className="mt-4 max-w-3xl text-base leading-8 text-slate">
-            Community entry, resident amenities, clubhouse, and site layout.
+            Main entry, community edge, courtyard, clubhouse, and arrival views.
           </p>
         </div>
         <RenderingCarousel items={project.gallery} />
@@ -78,11 +88,12 @@ export default function ReserveAtEastwoodPage() {
           <div>
             <Eyebrow>Location</Eyebrow>
             <h2 className="font-serif text-3xl font-bold leading-tight text-navy">
-              Fort Myers site context.
+              Dunbar and MLK redevelopment context.
             </h2>
             <p className="mt-4 text-base leading-8 text-slate">
-              Public filings identify Reserve at Eastwood near Ortiz Avenue and
-              Hanson Street in Fort Myers, Florida.
+              Company materials locate Reserve at Franklin Park within the
+              Dunbar community of Fort Myers, including the MLK Redevelopment
+              Area and the Fort Myers / Lee County Enterprise Zone.
             </p>
           </div>
           {project.mapImage && project.mapAlt ? (
@@ -92,11 +103,11 @@ export default function ReserveAtEastwoodPage() {
       </Section>
 
       <Section className="bg-warm">
-        <div className="grid gap-10 lg:grid-cols-2">
+        <div className="grid gap-10 lg:grid-cols-3">
           <div>
-            <Eyebrow>Unit Features</Eyebrow>
+            <Eyebrow>Unit Program</Eyebrow>
             <h2 className="font-serif text-3xl font-bold leading-tight text-navy">
-              Durable finishes and everyday usability.
+              Larger homes for family households.
             </h2>
             <ul className="mt-6 grid gap-3">
               {project.unitFeatures.map((feature) => (
@@ -113,7 +124,7 @@ export default function ReserveAtEastwoodPage() {
           <div>
             <Eyebrow>Amenities</Eyebrow>
             <h2 className="font-serif text-3xl font-bold leading-tight text-navy">
-              Resident-focused community amenities.
+              Community amenities.
             </h2>
             <ul className="mt-6 grid gap-3">
               {project.amenities.map((amenity) => (
@@ -126,6 +137,22 @@ export default function ReserveAtEastwoodPage() {
               ))}
             </ul>
           </div>
+          <div>
+            <Eyebrow>Resident Services</Eyebrow>
+            <h2 className="font-serif text-3xl font-bold leading-tight text-navy">
+              Planned support services.
+            </h2>
+            <ul className="mt-6 grid gap-3">
+              {project.residentServices?.map((service) => (
+                <li
+                  className="rounded-card border border-border bg-white p-4 text-sm font-semibold text-charcoal shadow-line"
+                  key={service}
+                >
+                  {service}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </Section>
 
@@ -134,7 +161,7 @@ export default function ReserveAtEastwoodPage() {
           <div>
             <Eyebrow className="text-gold">Sustainability</Eyebrow>
             <h2 className="font-serif text-3xl font-bold leading-tight text-white sm:text-4xl">
-              Designed to recognized performance specifications.
+              Planned to NGBS specifications.
             </h2>
           </div>
           <p className="text-lg leading-9 text-white/76">
@@ -147,7 +174,7 @@ export default function ReserveAtEastwoodPage() {
         <div className="mb-10">
           <Eyebrow>Project Ecosystem</Eyebrow>
           <h2 className="font-serif text-3xl font-bold leading-tight text-navy sm:text-4xl">
-            The workstreams behind delivery.
+            Development workstreams.
           </h2>
         </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -168,7 +195,10 @@ export default function ReserveAtEastwoodPage() {
       </Section>
 
       <CTASection
-        ctas={[{ label: "Contact Lighthouse", href: "/contact?inquiry=Land%20opportunity" }]}
+        ctas={[
+          { label: "Contact Lighthouse", href: "/contact?inquiry=Land%20opportunity" },
+          { label: "View Portfolio", href: "/projects" }
+        ]}
         description="Bring a site, public priority, capital question, or delivery challenge to the Lighthouse team."
         title="Discuss a partnership opportunity."
       />

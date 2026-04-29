@@ -2,7 +2,7 @@
 
 Production-ready static Next.js site for Lighthouse Development Partners.
 
-The site presents Lighthouse Development Partners as a privately held real estate development firm focused on Affordable Housing, Hotels, and Mixed-Use Master Planned Communities. It preserves investor portal access as a dedicated transition page instead of making the portal the homepage.
+The site presents Lighthouse Development Partners as a focused real estate development platform for affordable housing, hospitality, and mixed-use communities. It preserves investor portal access as a dedicated transition page instead of making the portal the homepage.
 
 ## Tech Stack
 
@@ -92,29 +92,42 @@ Edit that file to update:
 - Impact metrics
 - Partner categories
 - Process steps
-- FAQs and legal placeholders
+- FAQs and legal pages
 
-Unsupported facts use `isPlaceholder: true` or explicit placeholder language such as `Metric pending internal confirmation`.
+Keep unsupported project, metric, partner, or biography claims out of public pages until Lighthouse approves them.
 
-## Placeholder Images
+## Image Assets
 
-Generated SVG placeholders are in:
+Public image assets are in:
 
 ```bash
 public/images
 ```
 
-Replace SVG placeholders with approved SPINE3D/project renderings once available.
+This version uses Lighthouse source-logo exports, leadership photos, Reserve at Eastwood renderings, and the March 2026 Reserve at Franklin Park renderings sourced from the locally synced Lighthouse SharePoint / OneDrive library. It also uses OpenStreetMap-derived location graphics with attribution embedded in the map assets.
 
-Current placeholders include:
+Current project assets include:
 
-- `reserve-eastwood-hero.svg`
-- `reserve-eastwood-courtyard.svg`
-- `reserve-eastwood-clubhouse.svg`
-- `reserve-eastwood-site-plan.svg`
-- `reserve-eastwood-amenity.svg`
+- `ldp-logo-stack-white.png`
+- `ldp-icon-only-white.png`
+- `ldp-icon-only-brand-blue.png`
+- `team-harley-sisler.png`
+- `team-sean-smith.png`
+- `team-maxfield-branson.png`
+- `reserve-eastwood-hero.jpg`
+- `reserve-eastwood-amenities.jpg`
+- `reserve-eastwood-pool.jpg`
+- `reserve-eastwood-site-aerial.jpg`
+- `reserve-eastwood-location-map.jpg`
+- `reserve-franklin-park-01.jpg`
+- `reserve-franklin-park-02.jpg`
+- `reserve-franklin-park-03.jpg`
+- `reserve-franklin-park-04.jpg`
+- `reserve-franklin-park-05.jpg`
+- `reserve-franklin-park-location-map.jpg`
+- `about-blueprints-stock.jpg`
 
-Do not add partner logos, renderings, or photography unless Lighthouse has approved the files and usage rights.
+Confirm public-use approval for SharePoint-sourced photos, renderings, maps, and partner references before production launch. Do not add partner logos, renderings, or photography unless Lighthouse has approved the files and usage rights. The about-page planning photograph is sourced from Unsplash and should be replaced with approved Lighthouse photography if preferred.
 
 ## Investor Portal Link
 
@@ -134,7 +147,7 @@ Update the contact email in:
 src/data/site.ts
 ```
 
-Look for `email`. The current value is a placeholder: `info@lighthousedevelopment.com`.
+Look for `email`. Confirm that `info@lighthousedevelopment.com` is the correct public inbox before launch.
 
 The contact form generates a mailto draft and does not submit to a backend.
 
@@ -148,21 +161,16 @@ For new project detail pages, add a route under:
 src/app/projects
 ```
 
-For new article pages, add a route under:
-
-```bash
-src/app/news
-```
-
-Also update `routes` in `src/data/site.ts` so the sitemap includes the new route.
+News article pages are generated from `src/app/news/[slug]/page.tsx`. Add an article to `site.news`; the static route and sitemap will pick it up through the data file.
 
 ## Missing Items Needed From Lighthouse
 
-- Approved logo files
-- Approved renderings
-- Leadership bios and headshots
+- Final favicon export, if different from the source-derived icon in this repo
+- Public-use approval for source-logo exports, leadership photos, and project renderings
+- Final web-ready project rendering files, if different from the current SharePoint source assets
 - Confirmed contact email
 - Confirmed investor portal URL
+- Confirmed LinkedIn/company profile URL
 - Confirmed project pipeline
 - Approved partner logos
 - Confirmed project metrics

@@ -14,7 +14,7 @@ export function CTASection({ title, description, ctas }: CTASectionProps) {
     <Section className="bg-harbor text-white">
       <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
         <div>
-          <h2 className="font-serif text-4xl font-semibold text-white sm:text-5xl">
+          <h2 className="font-serif text-3xl font-bold leading-tight text-white sm:text-4xl">
             {title}
           </h2>
           <p className="mt-4 max-w-3xl text-base leading-8 text-white/76">

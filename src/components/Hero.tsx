@@ -33,13 +33,13 @@ export function Hero({
   const hasVisual = Boolean(image || stats?.length || children);
 
   return (
-    <section className={cn("relative overflow-hidden bg-navy text-white", className)}>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_22%,rgba(199,162,74,0.23),transparent_30%),linear-gradient(115deg,rgba(31,111,115,0.38),transparent_42%)]" />
-      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-gold/70 to-transparent" />
-      <div className="relative mx-auto grid w-full max-w-7xl gap-10 px-4 py-20 sm:px-6 sm:py-24 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:py-28">
-        <div className={cn("max-w-3xl", !hasVisual && "lg:col-span-2")}>
-          <Eyebrow>{eyebrow}</Eyebrow>
-          <h1 className="font-serif text-5xl font-semibold leading-[0.98] text-white sm:text-6xl lg:text-7xl">
+    <section className={cn("relative overflow-hidden bg-harbor text-white", className)}>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(183,154,86,0.22),transparent_34%),linear-gradient(115deg,rgba(7,23,97,0.34),transparent_46%)]" />
+      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
+      <div className="relative mx-auto grid w-full max-w-7xl gap-10 px-4 py-16 sm:px-6 sm:py-20 md:grid-cols-[0.95fr_1.05fr] lg:px-8 lg:py-24">
+        <div className={cn("max-w-3xl", !hasVisual && "md:col-span-2")}>
+          <Eyebrow className="text-gold">{eyebrow}</Eyebrow>
+          <h1 className="font-serif text-4xl font-bold leading-tight text-white lg:text-5xl">
             {title}
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-white/78">
@@ -63,10 +63,10 @@ export function Hero({
         {hasVisual ? (
           <div className="self-end">
             {image && imageAlt ? (
-              <RenderedSvgFrame alt={imageAlt} label="Replace with approved project photography" src={image} />
+              <RenderedSvgFrame alt={imageAlt} priority src={image} />
             ) : null}
             {stats?.length ? (
-              <div className="-mt-8 grid gap-3 px-4 sm:grid-cols-2">
+              <div className="mt-4 grid gap-3 sm:grid-cols-2">
                 {stats.map((stat) => (
                   <StatCard className="bg-white" key={`${stat.value}-${stat.label}`} stat={stat} />
                 ))}

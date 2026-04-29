@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Eyebrow } from "@/components/Eyebrow";
-import { PlaceholderImage } from "@/components/PlaceholderImage";
+import { ImageFrame } from "@/components/ImageFrame";
 import { Section } from "@/components/Section";
 import { site } from "@/data/site";
 import { pageMetadata } from "@/lib/metadata";
@@ -26,17 +26,17 @@ export default function ReserveClosingArticlePage() {
       />
       <article className="mx-auto max-w-4xl">
         <Eyebrow>{article.category}</Eyebrow>
-        <h1 className="font-serif text-5xl font-semibold leading-tight text-navy sm:text-6xl">
+        <h1 className="font-serif text-4xl font-bold leading-tight text-navy sm:text-5xl">
           {article.title}
         </h1>
-        <p className="mt-4 text-sm font-bold uppercase tracking-[0.14em] text-teal">
+        <p className="mt-4 text-sm font-bold uppercase tracking-[0.14em] text-harbor">
           {article.date}
         </p>
         <p className="mt-6 text-xl leading-9 text-slate">{article.deck}</p>
         <div className="mt-10">
-          <PlaceholderImage
+          <ImageFrame
             alt={article.imageAlt}
-            label="Reserve at Eastwood placeholder rendering"
+            label="Reserve at Eastwood"
             src={article.image}
           />
         </div>

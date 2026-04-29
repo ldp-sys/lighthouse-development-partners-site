@@ -20,7 +20,7 @@ export default function NewsPage() {
         title={site.newsPage.hero.title}
       />
       <Section>
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {site.news.map((article) => (
             <NewsCard article={article} key={article.slug} />
           ))}

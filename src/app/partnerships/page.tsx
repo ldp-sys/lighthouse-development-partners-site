@@ -28,7 +28,7 @@ export default function PartnershipsPage() {
               className="rounded-card border border-border bg-white p-6 shadow-line"
               key={partner.title}
             >
-              <div className="flex h-11 w-11 items-center justify-center rounded-card bg-teal/10 text-teal">
+              <div className="flex h-11 w-11 items-center justify-center rounded-card bg-sand text-teal">
                 <Icon aria-hidden className="h-5 w-5" name={partner.icon} />
               </div>
               <h2 className="mt-5 font-serif text-2xl font-semibold text-navy">
@@ -45,7 +45,7 @@ export default function PartnershipsPage() {
         <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
             <Eyebrow>What Lighthouse Brings</Eyebrow>
-            <h2 className="font-serif text-4xl font-semibold text-navy sm:text-5xl">
+            <h2 className="font-serif text-3xl font-bold leading-tight text-navy sm:text-4xl">
               Focused development capacity for aligned partners.
             </h2>
           </div>

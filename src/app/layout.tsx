@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Inter, Libre_Baskerville } from "next/font/google";
 import type { ReactNode } from "react";
 import "@/app/globals.css";
 import { site } from "@/data/site";
@@ -7,11 +7,11 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { absoluteUrl } from "@/lib/utils";
 
-const serif = Cormorant_Garamond({
+const serif = Libre_Baskerville({
   subsets: ["latin"],
   variable: "--font-serif",
   display: "swap",
-  weight: ["500", "600", "700"]
+  weight: ["400", "700"]
 });
 
 const sans = Inter({
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
   description: site.seo.homeDescription,
   icons: {
-    icon: "/images/lighthouse-mark.svg"
+    icon: site.company.mark
   },
   openGraph: {
     title: site.seo.homeTitle,
@@ -81,7 +81,11 @@ const websiteJsonLd = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html className={`${serif.variable} ${sans.variable}`} lang="en">
+    <html
+      className={`${serif.variable} ${sans.variable}`}
+      data-scroll-behavior="smooth"
+      lang="en"
+    >
       <body>
         <SiteHeader />
         <main id="main-content">{children}</main>

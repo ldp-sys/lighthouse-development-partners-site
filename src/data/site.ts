@@ -34,14 +34,12 @@ export type Stat = {
   value: string;
   label: string;
   description?: string;
-  isPlaceholder?: boolean;
 };
 
 export type Value = {
   title: string;
   description: string;
   icon: IconName;
-  isPlaceholder?: boolean;
 };
 
 export type Capability = {
@@ -72,6 +70,7 @@ export type Project = {
   name: string;
   href: string;
   location: string;
+  locationDetail?: string;
   type: string;
   status: string;
   statusDetail?: string;
@@ -79,15 +78,17 @@ export type Project = {
   description: string;
   image: string;
   imageAlt: string;
+  mapImage?: string;
+  mapAlt?: string;
   gallery: ProjectGalleryItem[];
   stats: Stat[];
   facts: Stat[];
   tags: string[];
   unitFeatures: string[];
   amenities: string[];
+  residentServices?: string[];
   sustainability: string;
   ecosystem: string[];
-  isPlaceholder?: boolean;
 };
 
 export type NewsArticle = {
@@ -100,14 +101,16 @@ export type NewsArticle = {
   body: string[];
   image: string;
   imageAlt: string;
-  isPlaceholder?: boolean;
 };
 
 export type TeamMember = {
   name: string;
   role: string;
+  image: string;
+  imageAlt: string;
+  summary: string;
   bio: string;
-  isPlaceholder?: boolean;
+  credentials: string[];
 };
 
 export type LegalPage = {
@@ -118,20 +121,18 @@ export type LegalPage = {
     title: string;
     body: string[];
   }[];
-  isPlaceholder?: boolean;
 };
 
 export type FAQ = {
   question: string;
   answer: string;
-  isPlaceholder?: boolean;
 };
 
 export const site = {
   company: {
     name: "Lighthouse Development Partners",
     shortName: "LDP",
-    type: "Privately held real estate development firm",
+    type: "Real estate development platform",
     industry: "Real Estate",
     domain: "https://www.lighthousedevelopment.com",
     address: {
@@ -142,33 +143,30 @@ export const site = {
       country: "US"
     },
     email: "info@lighthousedevelopment.com",
-    emailIsPlaceholder: true,
     investorPortalUrl: "https://www.lighthousedevelopment.com/",
-    investorPortalUrlIsPlaceholder: true,
-    logo: "/images/lighthouse-logo.svg",
-    mark: "/images/lighthouse-mark.svg",
+    logo: "/images/ldp-logo-stack-white.png",
+    logoLight: "/images/ldp-logo-stack-white.png",
+    mark: "/images/ldp-icon-only-brand-blue.png",
+    markLight: "/images/ldp-icon-only-white.png",
     linkedInUrl: "",
     mission:
-      "Lighthouse Development Partners is committed to creating exceptional, vibrant, and sustainable developments by delivering high-quality Affordable Housing, Hotels, and Mixed-Use Master Planned Communities. Through strategic partnerships, the firm is dedicated to innovation, inclusivity, and enhancing the economic and social fabric of the neighborhoods it serves.",
+      "Lighthouse Development Partners develops affordable housing, hospitality, and mixed-use communities through strategic partnerships, disciplined execution, and a focus on durable neighborhood value.",
     positioning:
-      "Developing communities with purpose, discipline, and lasting value."
+      "Development partnerships for affordable housing, hospitality, and mixed-use communities."
   },
   seo: {
     defaultTitleFormat: "%s | Lighthouse Development Partners",
     homeTitle:
       "Lighthouse Development Partners | Affordable Housing, Hospitality & Mixed-Use Development",
     homeDescription:
-      "Lighthouse Development Partners creates affordable housing, hospitality, and mixed-use developments through strategic partnerships, sustainable design, and rigorous execution.",
-    ogImage: "/images/og-image.svg"
+      "Lighthouse Development Partners develops affordable housing, hospitality, and mixed-use communities through strategic partnerships and disciplined execution.",
+    ogImage: "/images/og-image.jpg"
   },
   nav: [
     { label: "About", href: "/about" },
     { label: "Projects", href: "/projects" },
-    { label: "Capabilities", href: "/capabilities" },
-    { label: "Impact", href: "/impact" },
-    { label: "Partnerships", href: "/partnerships" },
-    { label: "News", href: "/news" },
     { label: "Team", href: "/team" },
+    { label: "News", href: "/news" },
     { label: "Contact", href: "/contact" }
   ] satisfies NavItem[],
   footerColumns: [
@@ -186,6 +184,7 @@ export const site = {
       links: [
         { label: "Portfolio", href: "/projects" },
         { label: "Reserve at Eastwood", href: "/projects/reserve-at-eastwood" },
+        { label: "Reserve at Franklin Park", href: "/projects/reserve-at-franklin-park" },
         { label: "Impact", href: "/impact" }
       ]
     },
@@ -209,47 +208,47 @@ export const site = {
   home: {
     hero: {
       eyebrow: "Lighthouse Development Partners",
-      title: "Developing communities with purpose, discipline, and lasting value.",
+      title: "Purpose-built communities. Disciplined delivery.",
       description:
-        "Lighthouse Development Partners creates affordable housing, hospitality, and mixed-use developments through strategic partnerships, sustainable design, and rigorous execution.",
+        "Lighthouse Development Partners develops affordable housing, hospitality, and mixed-use communities through aligned capital, public-sector coordination, and long-term execution discipline.",
       ctas: [
         { label: "View Our Work", href: "/projects" },
         { label: "Partner With Us", href: "/partnerships" },
         { label: "Investor Portal", href: "/investor-portal" }
       ],
-      image: "/images/reserve-eastwood-hero.svg",
+      image: "/images/reserve-eastwood-hero.jpg",
       imageAlt:
-        "Architectural placeholder rendering for Reserve at Eastwood in the Lighthouse brand style",
+        "Reserve at Eastwood exterior rendering in Fort Myers, Florida",
       stats: [
-        { value: "288", label: "Affordable homes" },
-        { value: "30%-70%", label: "AMI bands" },
-        { value: "Fort Myers", label: "Florida" },
-        { value: "EnergyStar + NGBS", label: "Specifications" }
+        { value: "384", label: "Affordable homes in active project work" },
+        { value: "2", label: "Active affordable communities" },
+        { value: "3", label: "Development sectors" },
+        { value: "Florida", label: "Headquartered platform" }
       ] satisfies Stat[]
     },
     credibility: {
       eyebrow: "Development Platform",
       title: "A development partner for complex, high-impact projects.",
       body:
-        "From affordable housing communities to hospitality and mixed-use developments, Lighthouse Development Partners brings together capital, public-sector coordination, design, construction, and long-term operating perspective to deliver projects that serve residents, strengthen neighborhoods, and create durable value."
+        "From affordable housing communities to hospitality and mixed-use developments, Lighthouse coordinates capital, public-sector priorities, design, construction, and long-term operating perspective so complex projects can move from concept to completion."
     },
     whatWeBuild: [
       {
         title: "Affordable Housing",
         description:
-          "Income-restricted communities designed around resident dignity, municipal alignment, and long-term affordability.",
+          "Income-restricted communities planned around resident needs, municipal priorities, and long-term affordability requirements.",
         icon: "home"
       },
       {
         title: "Hotels & Hospitality",
         description:
-          "Hospitality development opportunities shaped by site strategy, market demand, and disciplined execution.",
+          "Hospitality projects shaped by location, market demand, operating logic, and delivery discipline.",
         icon: "building"
       },
       {
         title: "Mixed-Use / Master-Planned Communities",
         description:
-          "Coordinated places that connect residential, hospitality, civic, and neighborhood-serving uses.",
+          "Plans that coordinate residential, hospitality, civic, and neighborhood-serving uses in a clear development framework.",
         icon: "city"
       },
       {
@@ -269,13 +268,13 @@ export const site = {
       {
         title: "Capital Partners",
         description:
-          "Coordinating capital strategies that match project complexity, timing, affordability requirements, and execution risk.",
+          "Matching capital strategy to timing, affordability requirements, and execution risk.",
         icon: "chart"
       },
       {
         title: "Landowners",
         description:
-          "Evaluating sites for feasibility, entitlement pathway, neighborhood fit, and long-term development value.",
+          "Evaluating sites for feasibility, entitlement path, neighborhood fit, and development value.",
         icon: "map"
       },
       {
@@ -286,36 +285,35 @@ export const site = {
       }
     ] satisfies PartnerCategory[],
     impactStats: [
-      { value: "288", label: "Affordable homes in active project" },
+      { value: "384", label: "Affordable homes across active project work" },
       { value: "30%-70%", label: "AMI bands served" },
-      { value: "EnergyStar + NGBS", label: "Sustainable specifications" },
+      { value: "EnergyStar / NGBS", label: "Sustainable specifications" },
       { value: "Florida-based", label: "Development platform" }
     ] satisfies Stat[],
     finalCta: {
-      title: "Built through partnership. Delivered with discipline.",
+      title: "Aligned early. Executed carefully.",
       description:
-        "Connect with Lighthouse Development Partners to discuss development opportunities, public-sector priorities, or project partnerships.",
+        "Connect with Lighthouse to discuss sites, public-sector priorities, capital questions, or project partnerships.",
       ctas: [
         { label: "Contact Us", href: "/contact" },
-        { label: "Explore Capabilities", href: "/capabilities" }
+        { label: "Explore the Platform", href: "/about" }
       ]
     }
   },
   about: {
     hero: {
       eyebrow: "About Lighthouse",
-      title:
-        "A focused development platform for housing, hospitality, and mixed-use communities.",
+      title: "A focused development platform for community-scale real estate.",
       description:
-        "Lighthouse Development Partners is a privately held real estate development firm headquartered in St Petersburg, Florida."
+        "Lighthouse Development Partners is headquartered in St Petersburg and built around affordable housing, hospitality, and mixed-use development partnerships."
     },
     overview:
-      "Lighthouse Development Partners is committed to creating exceptional, vibrant, and sustainable developments by delivering high-quality Affordable Housing, Hotels, and Mixed-Use Master Planned Communities. Through strategic partnerships, the firm is dedicated to innovation, inclusivity, and enhancing the economic and social fabric of the neighborhoods it serves.",
+      "Lighthouse Development Partners works at the intersection of housing need, site strategy, public finance, private capital, and project delivery. The firm focuses on affordable housing, hotels, and mixed-use master-planned communities where disciplined execution can create lasting neighborhood value.",
     philosophy: [
       {
         title: "Partnership-first execution",
         description:
-          "Complex projects move through aligned public, capital, design, construction, and community relationships.",
+          "Projects move through aligned public, capital, design, construction, and community relationships.",
         icon: "handshake"
       },
       {
@@ -371,61 +369,52 @@ export const site = {
       {
         title: "Execution Discipline",
         description:
-          "Maintain clear milestones, risk ownership, and rigorous follow-through from feasibility to delivery.",
-        icon: "target",
-        isPlaceholder: true
+          "Maintain clear milestones, risk ownership, and follow-through from feasibility to delivery.",
+        icon: "target"
       },
       {
         title: "Transparency",
         description:
           "Communicate clearly with partners and stakeholders around facts, decisions, and open items.",
-        icon: "file",
-        isPlaceholder: true
+        icon: "file"
       }
     ] satisfies Value[],
     operatingModel: {
       title: "Lean, senior-led, partnership-oriented.",
       body:
-        "Lighthouse is built to coordinate complex projects through trusted relationships and disciplined execution. The platform is intentionally focused: it brings senior attention to site strategy, public-sector alignment, capital coordination, delivery partners, and long-term project stewardship without overstating company scale."
+        "Lighthouse is built for direct senior attention, clear partner coordination, and disciplined follow-through. The platform stays focused on site strategy, public-sector alignment, capital coordination, delivery partners, and stewardship without overstating scale."
     },
     milestones: [
       {
-        title: "Lighthouse Development Partners platform established",
-        description: "Platform milestone. Exact formation narrative pending approved company history.",
-        isPlaceholder: true
-      },
-      {
-        title: "Reserve at Eastwood closing announced",
+        title: "Lighthouse platform established in St Petersburg",
         description:
-          "Closing milestone for a 288-unit affordable housing community in Fort Myers, Florida."
+          "The company operates from 360 Central Ave in St Petersburg, Florida, with a development platform focused on affordable housing, hospitality, and mixed-use communities."
       },
       {
-        title: "Construction phase underway",
-        description: "Final wording and status to be confirmed internally.",
-        isPlaceholder: true
+        title: "Reserve at Eastwood financial closing completed",
+        description:
+          "A 288-unit affordable housing community in Fort Myers advanced from closing into construction."
       },
       {
-        title: "Additional pipeline milestones coming soon",
-        description: "Pipeline details available upon request.",
-        isPlaceholder: true
+        title: "Reserve at Franklin Park advanced through design",
+        description:
+          "Company materials describe a planned 96-unit affordable housing community in Fort Myers' Dunbar neighborhood."
       }
     ]
   },
   projectsPage: {
     hero: {
       eyebrow: "Projects",
-      title: "Communities designed for residents, municipalities, and long-term partners.",
+      title: "Portfolio",
       description:
-        "The Lighthouse portfolio is structured around affordable housing, hospitality, and mixed-use development opportunities where partnership and execution discipline matter."
+        "Current Lighthouse work is concentrated in Florida affordable housing, with hospitality and mixed-use opportunities managed through direct partner conversations."
     },
     filters: [
       "All",
       "Affordable Housing",
-      "Hospitality",
-      "Mixed-Use",
       "Under Construction",
-      "Pipeline",
-      "To Be Announced"
+      "Predevelopment",
+      "Florida"
     ]
   },
   projects: [
@@ -434,56 +423,54 @@ export const site = {
       name: "Reserve at Eastwood",
       href: "/projects/reserve-at-eastwood",
       location: "Fort Myers, Florida",
+      locationDetail: "Ortiz Avenue and Hanson Street",
       type: "Affordable Housing",
-      status: "Closing announced",
-      statusDetail: "Moving into construction",
+      status: "Under Construction",
+      statusDetail: "Financial closing completed",
       summary:
-        "A 288-unit affordable multifamily community serving 30%, 50%, 60%, and 70% AMI households.",
+        "A 288-unit affordable multifamily community at Ortiz Avenue and Hanson Street in Fort Myers.",
       description:
-        "Reserve at Eastwood is designed as a high-quality affordable housing community serving a range of household sizes and income levels in Fort Myers. The project combines resident-focused amenities, durable unit finishes, and sustainable building standards to support long-term community value.",
-      image: "/images/reserve-eastwood-hero.svg",
+        "Reserve at Eastwood is a 288-unit affordable multifamily community serving a range of household sizes and income levels in Fort Myers. The development combines one-, two-, three-, and four-bedroom homes with resident amenities, durable interior finishes, and recognized sustainable building specifications.",
+      image: "/images/reserve-eastwood-hero.jpg",
       imageAlt:
-        "Architectural placeholder rendering for Reserve at Eastwood multifamily buildings",
+        "Reserve at Eastwood exterior rendering in Fort Myers, Florida",
+      mapImage: "/images/reserve-eastwood-location-map.jpg",
+      mapAlt: "OpenStreetMap location map for Reserve at Eastwood in Fort Myers",
       gallery: [
         {
-          title: "Exterior Massing",
-          image: "/images/reserve-eastwood-hero.svg",
-          alt: "Exterior placeholder rendering for Reserve at Eastwood"
+          title: "Entry and Clubhouse",
+          image: "/images/reserve-eastwood-hero.jpg",
+          alt: "Reserve at Eastwood entry and clubhouse rendering"
         },
         {
-          title: "Courtyard",
-          image: "/images/reserve-eastwood-courtyard.svg",
-          alt: "Courtyard placeholder rendering for Reserve at Eastwood"
+          title: "Resident Amenities",
+          image: "/images/reserve-eastwood-amenities.jpg",
+          alt: "Reserve at Eastwood pickleball court, playground, dog park, and apartment buildings"
         },
         {
-          title: "Clubhouse",
-          image: "/images/reserve-eastwood-clubhouse.svg",
-          alt: "Clubhouse placeholder rendering for Reserve at Eastwood"
+          title: "Pool and Clubhouse",
+          image: "/images/reserve-eastwood-pool.jpg",
+          alt: "Reserve at Eastwood pool and clubhouse rendering"
         },
         {
-          title: "Site Plan",
-          image: "/images/reserve-eastwood-site-plan.svg",
-          alt: "Abstract site plan placeholder for Reserve at Eastwood"
-        },
-        {
-          title: "Amenity Area",
-          image: "/images/reserve-eastwood-amenity.svg",
-          alt: "Amenity area placeholder rendering for Reserve at Eastwood"
+          title: "Site Aerial",
+          image: "/images/reserve-eastwood-site-aerial.jpg",
+          alt: "Reserve at Eastwood aerial rendering showing buildings, parking, pond, and amenities"
         }
       ],
       stats: [
         { value: "288", label: "Affordable housing units" },
         { value: "30%, 50%, 60%, 70%", label: "AMI bands" },
         { value: "1-4 BR", label: "Apartment mix" },
-        { value: "EnergyStar + NGBS", label: "Design specifications" }
+        { value: "EnergyStar / NGBS", label: "Design specifications" }
       ],
       facts: [
         { value: "288", label: "Affordable housing units" },
         { value: "30%, 50%, 60%, 70%", label: "AMI bands" },
         { value: "1-, 2-, 3-, and 4-bedroom", label: "Apartment mix" },
-        { value: "Fort Myers, Florida", label: "Location" },
-        { value: "EnergyStar + NGBS", label: "Specifications" },
-        { value: "Closing announced", label: "Status", description: "Moving into construction" }
+        { value: "Ortiz Ave and Hanson St", label: "Location", description: "Fort Myers, Florida" },
+        { value: "EnergyStar / NGBS", label: "Specifications" },
+        { value: "Financial closing completed", label: "Status", description: "Moving into construction" }
       ],
       tags: ["Affordable Housing", "Under Construction", "Florida"],
       unitFeatures: [
@@ -515,92 +502,110 @@ export const site = {
       ]
     },
     {
-      slug: "gulf-coast-affordable-housing-pipeline",
-      name: "Gulf Coast Affordable Housing Pipeline",
-      href: "/contact?inquiry=project",
-      location: "Florida Gulf Coast",
+      slug: "reserve-at-franklin-park",
+      name: "Reserve at Franklin Park",
+      href: "/projects/reserve-at-franklin-park",
+      location: "Fort Myers, Florida",
+      locationDetail: "Henderson Avenue / Dunbar neighborhood",
       type: "Affordable Housing",
-      status: "Pipeline",
-      summary: "Pipeline details available upon request.",
+      status: "Predevelopment",
+      statusDetail: "Financial closing targeted for Q2 2026",
+      summary:
+        "A 96-unit affordable housing community planned for Fort Myers' Dunbar neighborhood.",
       description:
-        "Placeholder for future affordable housing pipeline details once approved for public release.",
-      image: "/images/abstract-coastal-grid.svg",
-      imageAlt: "Abstract coastal planning grid placeholder",
-      gallery: [],
-      stats: [
+        "Reserve at Franklin Park is planned as a 96-unit affordable housing community in the Dunbar neighborhood of Fort Myers. Company materials describe a family-oriented development with two-, three-, and four-bedroom homes, a detached clubhouse, resident amenities, and income-restricted units serving households at or below 70% AMI.",
+      image: "/images/reserve-franklin-park-01.jpg",
+      imageAlt:
+        "Reserve at Franklin Park street-level rendering in Fort Myers, Florida",
+      mapImage: "/images/reserve-franklin-park-location-map.jpg",
+      mapAlt:
+        "OpenStreetMap location map for Reserve at Franklin Park near Henderson Avenue in Fort Myers",
+      gallery: [
         {
-          value: "Pending",
-          label: "Total units",
-          description: "Metric pending internal confirmation",
-          isPlaceholder: true
+          title: "Main Entry",
+          image: "/images/reserve-franklin-park-01.jpg",
+          alt: "Reserve at Franklin Park rendering showing the main entry and residential buildings"
         },
-        { value: "To be announced", label: "Status", isPlaceholder: true }
+        {
+          title: "Community Edge",
+          image: "/images/reserve-franklin-park-02.jpg",
+          alt: "Reserve at Franklin Park rendering showing community buildings and landscape edges"
+        },
+        {
+          title: "Courtyard",
+          image: "/images/reserve-franklin-park-03.jpg",
+          alt: "Reserve at Franklin Park rendering showing residential courtyard and amenity space"
+        },
+        {
+          title: "Clubhouse",
+          image: "/images/reserve-franklin-park-04.jpg",
+          alt: "Reserve at Franklin Park rendering showing clubhouse and amenity area"
+        },
+        {
+          title: "Arrival",
+          image: "/images/reserve-franklin-park-05.jpg",
+          alt: "Reserve at Franklin Park rendering showing pedestrian arrival and building frontage"
+        }
       ],
-      facts: [],
-      tags: ["Affordable Housing", "Pipeline", "To Be Announced"],
-      unitFeatures: [],
-      amenities: [],
-      sustainability: "Sustainability approach to be confirmed.",
-      ecosystem: [],
-      isPlaceholder: true
-    },
-    {
-      slug: "hospitality-development-opportunity",
-      name: "Hospitality Development Opportunity",
-      href: "/contact?inquiry=project",
-      location: "To be announced",
-      type: "Hospitality",
-      status: "To Be Announced",
-      summary: "Hospitality opportunity details will be added once approved.",
-      description:
-        "Placeholder for hotel and hospitality development opportunities.",
-      image: "/images/abstract-coastal-grid.svg",
-      imageAlt: "Abstract coastal grid placeholder for hospitality development",
-      gallery: [],
       stats: [
-        { value: "To be announced", label: "Market", isPlaceholder: true },
-        { value: "Pending", label: "Project metrics", isPlaceholder: true }
+        { value: "96", label: "Affordable housing units" },
+        { value: "30%, 60%, 70%", label: "AMI bands" },
+        { value: "2-4 BR", label: "Apartment mix" },
+        { value: "NGBS", label: "Design specification" }
       ],
-      facts: [],
-      tags: ["Hospitality", "To Be Announced"],
-      unitFeatures: [],
-      amenities: [],
-      sustainability: "Sustainability approach to be confirmed.",
-      ecosystem: [],
-      isPlaceholder: true
-    },
-    {
-      slug: "mixed-use-master-plan-opportunity",
-      name: "Mixed-Use Master Plan Opportunity",
-      href: "/contact?inquiry=project",
-      location: "To be announced",
-      type: "Mixed-Use",
-      status: "To Be Announced",
-      summary: "Master planning opportunity details will be added once approved.",
-      description:
-        "Placeholder for future mixed-use or master-planned community details.",
-      image: "/images/map-florida-fort-myers.svg",
-      imageAlt: "Abstract Florida map and parcel planning placeholder",
-      gallery: [],
-      stats: [
-        { value: "Pending", label: "Development program", isPlaceholder: true },
-        { value: "To be announced", label: "Status", isPlaceholder: true }
+      facts: [
+        { value: "96", label: "Affordable housing units" },
+        { value: "30%, 60%, 70%", label: "AMI bands" },
+        { value: "48 two-bedroom / 36 three-bedroom / 12 four-bedroom", label: "Unit mix" },
+        { value: "Henderson Avenue", label: "Location", description: "Dunbar neighborhood, Fort Myers" },
+        { value: "NGBS", label: "Specification" },
+        { value: "Predevelopment", label: "Status", description: "Financial closing targeted for Q2 2026" }
       ],
-      facts: [],
-      tags: ["Mixed-Use", "To Be Announced"],
-      unitFeatures: [],
-      amenities: [],
-      sustainability: "Sustainability approach to be confirmed.",
-      ecosystem: [],
-      isPlaceholder: true
+      tags: ["Affordable Housing", "Predevelopment", "Florida"],
+      unitFeatures: [
+        "Granite countertops",
+        "Modern wood cabinetry",
+        "Luxury vinyl plank flooring",
+        "Recessed LED lighting",
+        "Ceiling fans",
+        "Energy Star full-size appliances",
+        "In-unit washer/dryers"
+      ],
+      amenities: [
+        "Detached clubhouse",
+        "On-site management and maintenance offices",
+        "Clubroom",
+        "Business center",
+        "Fitness center",
+        "Secure parcel lockers",
+        "Basketball court",
+        "Playground and separate tot-lot",
+        "Covered patio with grilling"
+      ],
+      residentServices: [
+        "Employment assistance",
+        "Financial literacy",
+        "Health and wellness programming",
+        "Coordination with local partners"
+      ],
+      sustainability:
+        "Reserve at Franklin Park is planned to National Green Building Standard / NGBS specifications. Certification status and final performance data should be confirmed upon project completion.",
+      ecosystem: [
+        "Public-sector coordination",
+        "Housing finance",
+        "Design and permitting",
+        "Construction planning",
+        "Resident services coordination",
+        "Community stakeholders"
+      ]
     }
   ] satisfies Project[],
   capabilitiesPage: {
     hero: {
       eyebrow: "Capabilities",
-      title: "Development capabilities for complex, partnership-driven projects.",
+      title: "Capabilities",
       description:
-        "Lighthouse coordinates development work across site strategy, public-sector alignment, capital planning, design, construction, and long-term stewardship."
+        "Lighthouse coordinates site strategy, public-sector alignment, capital planning, design, construction, and stewardship."
     },
     capabilities: [
       {
@@ -612,7 +617,7 @@ export const site = {
       {
         title: "Hotels & Hospitality",
         description:
-          "Hospitality development coordination from site positioning through delivery partner alignment.",
+          "Hospitality development from site positioning through delivery partner alignment.",
         icon: "building"
       },
       {
@@ -648,7 +653,7 @@ export const site = {
       {
         title: "Compliance & Long-Term Stewardship",
         description:
-          "Attention to affordability requirements, operations perspective, and long-term asset performance.",
+          "Attention to affordability requirements, operations, and asset performance.",
         icon: "shield"
       }
     ] satisfies Capability[],
@@ -691,7 +696,7 @@ export const site = {
       {
         title: "Compliance & asset stewardship",
         description:
-          "Maintain attention to affordability, operating standards, and long-term performance."
+          "Maintain attention to affordability, operating standards, and performance."
       }
     ] satisfies ProcessStep[],
     complexityTags: [
@@ -710,9 +715,9 @@ export const site = {
   impactPage: {
     hero: {
       eyebrow: "Impact",
-      title: "Affordable housing is infrastructure for stronger communities.",
+      title: "Affordable housing as community infrastructure.",
       description:
-        "Lighthouse focuses on development outcomes that expand housing access, support residents, and contribute to neighborhood economic and social fabric."
+        "Lighthouse evaluates affordable housing by its practical effects: homes delivered, income bands served, resident experience, sustainable standards, and neighborhood fit."
     },
     pillars: [
       {
@@ -747,36 +752,18 @@ export const site = {
       }
     ] satisfies Value[],
     metrics: [
-      { value: "288", label: "Affordable homes in active project" },
+      { value: "384", label: "Affordable homes across active project work" },
       { value: "30%-70%", label: "AMI bands served" },
-      { value: "1- to 4-bedroom", label: "Homes" },
-      { value: "EnergyStar + NGBS", label: "Specifications" },
-      {
-        value: "Pending",
-        label: "Total pipeline units",
-        description: "Metric pending internal confirmation",
-        isPlaceholder: true
-      },
-      {
-        value: "Pending",
-        label: "Total capital mobilized",
-        description: "Metric pending internal confirmation",
-        isPlaceholder: true
-      },
-      {
-        value: "Pending",
-        label: "Completed communities",
-        description: "Metric pending internal confirmation",
-        isPlaceholder: true
-      }
+      { value: "1- to 4-bedroom", label: "Homes across the portfolio" },
+      { value: "EnergyStar / NGBS", label: "Specifications" }
     ] satisfies Stat[]
   },
   partnershipsPage: {
     hero: {
       eyebrow: "Partnerships",
-      title: "Partnership is how complex projects become real communities.",
+      title: "Partnerships",
       description:
-        "Lighthouse works with public, private, capital, design, construction, and community partners to move difficult development opportunities from concept to delivery."
+        "Lighthouse works with public, private, capital, design, construction, and community partners to move development opportunities from concept to delivery."
     },
     partnerTypes: [
       {
@@ -800,7 +787,7 @@ export const site = {
       {
         title: "Capital partners",
         description:
-          "Capital stack planning and disciplined execution for real estate development opportunities.",
+          "Capital planning and execution clarity for real estate development opportunities.",
         icon: "chart"
       },
       {
@@ -840,9 +827,9 @@ export const site = {
   newsPage: {
     hero: {
       eyebrow: "News",
-      title: "News, milestones, and project updates.",
+      title: "News and Insights",
       description:
-        "Read public updates from Lighthouse Development Partners, including project milestones and platform announcements."
+        "Public project milestones and practical development commentary from Lighthouse Development Partners."
     }
   },
   news: [
@@ -853,78 +840,250 @@ export const site = {
       category: "Project Milestone",
       date: "April 2026",
       deck:
-        "The Fort Myers affordable housing community will deliver 288 homes for households across 30%, 50%, 60%, and 70% AMI bands.",
+        "The Fort Myers affordable housing community will deliver 288 homes for households across multiple income bands.",
       body: [
         "Lighthouse Development Partners has announced the closing of Reserve at Eastwood, a 288-unit affordable multifamily community in Fort Myers, Florida.",
-        "The community is planned to serve households across 30%, 50%, 60%, and 70% AMI bands, with one-, two-, three-, and four-bedroom apartment homes designed for a range of household sizes.",
+        "The community is planned near Ortiz Avenue and Hanson Street and will serve households across 30%, 50%, 60%, and 70% AMI bands, with one-, two-, three-, and four-bedroom apartment homes designed for a range of household sizes.",
         "Resident-focused features are planned to include balconies, stainless steel appliances, granite countertops, and luxury vinyl plank floors. Community amenities are expected to include a 6,800-square-foot clubhouse, on-site management and maintenance staff, business and co-working stations, a fitness center, a community and media room, a pool and grill area, a pickleball court, a dog park, and a playground.",
         "Reserve at Eastwood is designed to EnergyStar and National Green Building Standards / NGBS specifications. Certification status and final performance data will be confirmed upon completion.",
-        "The closing milestone moves the project into construction and reflects Lighthouse's focus on strategic partnerships, disciplined delivery, and affordable housing that strengthens the communities it serves."
+        "The closing milestone moves the project into construction and reflects Lighthouse's focus on partnership, delivery discipline, and practical affordable housing."
       ],
-      image: "/images/reserve-eastwood-hero.svg",
-      imageAlt: "Reserve at Eastwood placeholder rendering"
+      image: "/images/reserve-eastwood-hero.jpg",
+      imageAlt: "Reserve at Eastwood exterior rendering"
     },
     {
-      slug: "public-facing-platform",
-      title: "Lighthouse Development Partners expands public-facing platform",
-      href: "/news",
-      category: "Company Update",
-      date: "Coming Soon",
+      slug: "reserve-at-franklin-park-affordable-housing-fort-myers",
+      title: "Reserve at Franklin Park Advances as a Planned Affordable Housing Community in Fort Myers",
+      href: "/news/reserve-at-franklin-park-affordable-housing-fort-myers",
+      category: "Project Update",
+      date: "April 2026",
       deck:
-        "Future platform updates will be published once approved for public release.",
-      body: [],
-      image: "/images/abstract-coastal-grid.svg",
-      imageAlt: "Abstract coastal grid placeholder",
-      isPlaceholder: true
+        "The planned 96-unit community reflects Lighthouse's focus on family-sized affordable housing, neighborhood reinvestment, and disciplined predevelopment work.",
+      body: [
+        "Reserve at Franklin Park is planned as a 96-unit affordable housing community in Fort Myers' Dunbar neighborhood. Company materials describe a family-oriented program with two-, three-, and four-bedroom homes.",
+        "The project is designed around practical resident needs: a detached clubhouse, on-site management and maintenance offices, a clubroom, a business center, a fitness center, secure parcel lockers, outdoor recreation, and covered gathering space.",
+        "For Lighthouse, Franklin Park represents the kind of development work that depends on site control, public-sector alignment, financing discipline, design coordination, and a clear understanding of local housing needs.",
+        "Final project status language, construction timing, certification status, and operating details should be confirmed as the development advances."
+      ],
+      image: "/images/reserve-franklin-park-01.jpg",
+      imageAlt: "Reserve at Franklin Park rendering"
     },
     {
-      slug: "pipeline-updates",
-      title: "Project pipeline updates coming soon",
-      href: "/news",
-      category: "Pipeline",
-      date: "Coming Soon",
-      deck: "Pipeline details available upon request.",
-      body: [],
-      image: "/images/map-florida-fort-myers.svg",
-      imageAlt: "Abstract Florida map placeholder",
-      isPlaceholder: true
+      slug: "affordable-housing-development-florida-public-private-partnerships",
+      title: "Why Public-Private Partnerships Matter in Florida Affordable Housing Development",
+      href: "/news/affordable-housing-development-florida-public-private-partnerships",
+      category: "Insight",
+      date: "April 2026",
+      deck:
+        "Affordable housing projects succeed when public priorities, private execution, capital sources, and community expectations are aligned early.",
+      body: [
+        "Affordable housing development is not a single-party effort. It requires municipalities, housing finance agencies, lenders, equity partners, contractors, designers, legal counsel, and community stakeholders to solve different parts of the same problem.",
+        "The strongest public-private partnerships begin before a project is fully formed. Site feasibility, infrastructure, zoning, affordability requirements, financing timing, and resident experience all need to be evaluated together.",
+        "In Florida, where population growth and housing cost pressures remain significant, partnership discipline can determine whether a viable site becomes a delivered community or stalls in predevelopment.",
+        "Lighthouse's role is to coordinate that work with clear milestones, defensible project information, and a practical path from concept to closing."
+      ],
+      image: "/images/about-blueprints-stock.jpg",
+      imageAlt: "Architectural drawings used for development planning"
+    },
+    {
+      slug: "how-ami-works-in-affordable-housing-development",
+      title: "How AMI Works in Affordable Housing Development",
+      href: "/news/how-ami-works-in-affordable-housing-development",
+      category: "Guide",
+      date: "April 2026",
+      deck:
+        "Area Median Income is one of the core measures used to determine who affordable housing serves and how rents are structured.",
+      body: [
+        "Area Median Income, often shortened to AMI, is a benchmark used in affordable housing programs to define income eligibility and rent restrictions. It helps translate local income conditions into program requirements.",
+        "A community may serve households at several AMI levels, depending on its financing sources, regulatory agreements, and local housing goals. Those bands affect unit set-asides, compliance obligations, and long-term operating requirements.",
+        "AMI is not a marketing label. It is a technical tool that shapes resident eligibility, underwriting, rent levels, and reporting. Developers need to treat AMI structure as a central part of project planning from the beginning.",
+        "For residents and public stakeholders, clear AMI communication helps explain who a community is intended to serve and why affordability restrictions matter over time."
+      ],
+      image: "/images/reserve-eastwood-amenities.jpg",
+      imageAlt: "Reserve at Eastwood amenity rendering"
+    },
+    {
+      slug: "lihtc-capital-stack-affordable-housing",
+      title: "The LIHTC Capital Stack: Why Affordable Housing Finance Requires Precision",
+      href: "/news/lihtc-capital-stack-affordable-housing",
+      category: "Insight",
+      date: "April 2026",
+      deck:
+        "Low-Income Housing Tax Credit projects require careful coordination among equity, debt, public sources, timing, documentation, and compliance.",
+      body: [
+        "Affordable housing finance is layered by design. A project may involve tax credit equity, tax-exempt bonds, subordinate public funds, conventional or agency debt, local incentives, and deferred developer economics.",
+        "Each source has its own requirements, deadlines, approvals, and risk allocation. The work is not only to secure capital, but to make sure the sources can close together and support the same development program.",
+        "Precision matters because small timing gaps can become major execution issues. A clear capital strategy helps agencies, lenders, investors, and construction partners understand what must happen next.",
+        "For Lighthouse, capital stack coordination is part of development execution, not a separate finance exercise."
+      ],
+      image: "/images/about-blueprints-stock.jpg",
+      imageAlt: "Architectural drawings and project documents"
+    },
+    {
+      slug: "ngbs-energy-star-affordable-housing",
+      title: "EnergyStar, NGBS, and Practical Sustainability in Affordable Housing",
+      href: "/news/ngbs-energy-star-affordable-housing",
+      category: "Insight",
+      date: "April 2026",
+      deck:
+        "Sustainability in affordable housing is most useful when it improves durability, operating performance, and resident comfort.",
+      body: [
+        "Green building standards are most meaningful when they connect design decisions to long-term performance. In affordable housing, practical sustainability can support resident comfort, utility efficiency, durability, and asset stewardship.",
+        "EnergyStar and National Green Building Standard criteria can influence envelope design, appliances, mechanical systems, materials, water usage, documentation, and construction coordination.",
+        "The key is to avoid treating sustainability as a slogan. Standards must be integrated into design, budget, schedule, construction quality control, and final certification work.",
+        "Certification status and performance data should be confirmed after completion, but the planning work begins much earlier."
+      ],
+      image: "/images/reserve-eastwood-pool.jpg",
+      imageAlt: "Reserve at Eastwood clubhouse and pool rendering"
+    },
+    {
+      slug: "family-sized-affordable-housing-fort-myers",
+      title: "Family-Sized Affordable Housing and the Need for Larger Apartment Homes",
+      href: "/news/family-sized-affordable-housing-fort-myers",
+      category: "Insight",
+      date: "April 2026",
+      deck:
+        "Two-, three-, and four-bedroom affordable homes are an important part of housing supply for working families and larger households.",
+      body: [
+        "Affordable housing conversations often focus on total unit count, but bedroom mix is just as important. Larger households need homes that fit daily life, school routines, work schedules, and family support systems.",
+        "Projects with two-, three-, and four-bedroom apartments can support family stability when paired with durable finishes, resident amenities, and access to employment, education, and services.",
+        "The development challenge is that larger units carry different cost, design, parking, amenity, and operating considerations. They require careful planning rather than generic unit layouts.",
+        "Reserve at Eastwood and Reserve at Franklin Park both include larger apartment homes in their planned unit mix."
+      ],
+      image: "/images/reserve-franklin-park-03.jpg",
+      imageAlt: "Reserve at Franklin Park courtyard rendering"
+    },
+    {
+      slug: "resident-amenities-affordable-housing",
+      title: "Resident Amenities in Affordable Housing Should Be Useful, Durable, and Easy to Operate",
+      href: "/news/resident-amenities-affordable-housing",
+      category: "Insight",
+      date: "April 2026",
+      deck:
+        "Amenities should support everyday life and long-term operations, not simply fill a checklist.",
+      body: [
+        "In affordable housing, amenities need to work hard. Clubhouses, fitness areas, co-working stations, playgrounds, parcel lockers, outdoor gathering areas, and on-site management spaces all affect resident experience and operating performance.",
+        "Good amenity planning begins with the households a community is intended to serve. Families, seniors, working residents, and residents with changing schedules may need different types of support from the same property.",
+        "Durability matters as much as design. Amenities should be maintainable, visible, accessible, and integrated into management and security planning.",
+        "The result is not excess. It is a more complete community that can support resident life over the long term."
+      ],
+      image: "/images/reserve-franklin-park-04.jpg",
+      imageAlt: "Reserve at Franklin Park clubhouse rendering"
+    },
+    {
+      slug: "landowner-partnership-affordable-housing",
+      title: "What Landowners Should Know Before Partnering on an Affordable Housing Site",
+      href: "/news/landowner-partnership-affordable-housing",
+      category: "Partnerships",
+      date: "April 2026",
+      deck:
+        "A strong site can become more valuable when zoning, infrastructure, public priorities, and financing realities are evaluated together.",
+      body: [
+        "Landowners often see a parcel before they see a project. Affordable housing development starts by testing whether a site can support the right unit count, access, utilities, stormwater, parking, approvals, and community context.",
+        "The best early conversations are specific. Location, title, environmental conditions, entitlement path, infrastructure capacity, and timing can materially affect whether a site is viable.",
+        "A developer's job is to translate that site information into a realistic development path. That includes understanding public-sector priorities, capital sources, resident needs, and construction feasibility.",
+        "When those pieces align, a landowner partnership can move from idea to execution with fewer surprises."
+      ],
+      image: "/images/reserve-franklin-park-02.jpg",
+      imageAlt: "Reserve at Franklin Park community rendering"
+    },
+    {
+      slug: "mixed-use-master-planned-communities-long-term-value",
+      title: "Mixed-Use and Master-Planned Communities Require More Than a Site Plan",
+      href: "/news/mixed-use-master-planned-communities-long-term-value",
+      category: "Insight",
+      date: "April 2026",
+      deck:
+        "Long-term value comes from coordinating uses, infrastructure, phasing, capital, and public priorities into a coherent development framework.",
+      body: [
+        "A mixed-use or master-planned community is not simply a collection of buildings. It is a framework for how housing, hospitality, neighborhood-serving uses, infrastructure, open space, and mobility fit together over time.",
+        "Successful planning depends on phasing. Early decisions about access, utilities, parcelization, vertical uses, and public improvements can shape what is possible years later.",
+        "Capital strategy also matters. Different uses may require different lenders, investors, operators, timelines, and risk tolerances. Development teams need a plan that can coordinate those realities without losing the larger purpose.",
+        "For Lighthouse, mixed-use work begins with disciplined site thinking: what belongs where, what can be delivered, and how the result strengthens the surrounding neighborhood."
+      ],
+      image: "/images/reserve-eastwood-site-aerial.jpg",
+      imageAlt: "Aerial rendering showing site planning and community layout"
+    },
+    {
+      slug: "fort-myers-affordable-housing-neighborhood-investment",
+      title: "Affordable Housing as Neighborhood Investment in Fort Myers",
+      href: "/news/fort-myers-affordable-housing-neighborhood-investment",
+      category: "Insight",
+      date: "April 2026",
+      deck:
+        "Well-planned affordable housing can contribute to neighborhood stability, housing access, and long-term civic value.",
+      body: [
+        "Affordable housing is most effective when it is planned as part of a neighborhood, not apart from it. Site context, street frontage, resident amenities, building durability, and public-sector priorities all influence the community result.",
+        "In Fort Myers, Lighthouse's active affordable housing work includes Reserve at Eastwood and the planned Reserve at Franklin Park. Together, those communities represent 384 affordable homes in current project work.",
+        "The impact is practical: more housing options, a broader range of apartment sizes, on-site management, amenities that support daily life, and development activity tied to long-term affordability requirements.",
+        "As projects advance, final status, delivery timing, and performance information should be confirmed through approved public materials and project-specific updates."
+      ],
+      image: "/images/reserve-eastwood-aerial.jpg",
+      imageAlt: "Reserve at Eastwood aerial rendering"
     }
   ] satisfies NewsArticle[],
   teamPage: {
     hero: {
       eyebrow: "Team",
-      title: "A focused team built for partnership-driven development.",
+      title: "A senior-led development platform.",
       description:
-        "Lighthouse coordinates complex development work through senior attention and trusted public, private, and advisory relationships."
+        "Lighthouse combines real estate development, affordable housing finance, construction coordination, and operating technology experience."
     },
     members: [
       {
         name: "Harley Sisler Jr",
-        role: "Leadership",
-        bio: "Bio forthcoming",
-        isPlaceholder: true
+        role: "Managing Partner, Co-Founder",
+        image: "/images/team-harley-sisler.png",
+        imageAlt: "Harley Sisler Jr portrait",
+        summary:
+          "Real estate developer and capital markets professional with experience across multifamily, hospitality, student housing, and mixed-use development.",
+        bio:
+          "Harley Sisler Jr. is a third-generation real estate developer, general contractor, and entrepreneur with more than 15 years of experience across real estate development, investment advisory, private equity, and capital markets. Company materials describe his leadership across ground-up multifamily, hospitality, student housing, and mixed-use projects, including prior work with Energy Real Estate Solutions Capital, Third Wave Development, RUliving, and Morgan Stanley.",
+        credentials: [
+          "Experience across multifamily, hospitality, student housing, and mixed-use assets",
+          "Background in development, private equity, investment advisory, and capital markets",
+          "B.S. in Business, Global Trade & Commerce, Wake Forest University"
+        ]
       },
       {
         name: "Sean C. Smith",
-        role: "Leadership",
-        bio: "Bio forthcoming",
-        isPlaceholder: true
+        role: "Managing Partner, Co-Founder",
+        image: "/images/team-sean-smith.png",
+        imageAlt: "Sean C. Smith portrait",
+        summary:
+          "Affordable and workforce housing developer with a background in finance, underwriting, appraisal, and market feasibility.",
+        bio:
+          "Sean C. Smith is a co-founder and Managing Partner of Lighthouse Development Partners. Company materials describe his focus on workforce and affordable housing, including more than ten years in multifamily and commercial real estate across valuation, financing, underwriting, and development. Before co-founding Lighthouse, Sean worked in affordable housing development and finance, including acquisition, financing, LIHTC execution, public funding sources, underwriting, appraisal, and market feasibility.",
+        credentials: [
+          "Affordable and workforce housing development experience across Florida and the Southeast",
+          "Background in LIHTC, public funding sources, underwriting, appraisal, and market studies",
+          "U.S. Army veteran; B.S. in Finance, University of South Florida"
+        ]
       },
       {
         name: "Maxfield Branson",
-        role: "Leadership",
-        bio: "Bio forthcoming",
-        isPlaceholder: true
+        role: "Development Operations & Technology",
+        image: "/images/team-maxfield-branson.png",
+        imageAlt: "Maxfield Branson portrait",
+        summary:
+          "Development operations and systems lead supporting project execution, workflow, and organizational technology.",
+        bio:
+          "Maxfield Branson supports day-to-day development operations and organizational technology at Lighthouse. Company materials describe his background across brokerage, asset management, development, and technology, including multifamily leasing, portfolio operations, workflow systems, and execution support for active development work.",
+        credentials: [
+          "Experience across brokerage, asset management, and development",
+          "Multifamily leasing and portfolio operations background",
+          "Workflow and technology systems integrated into the LDP platform"
+        ]
       }
     ] satisfies TeamMember[],
-    note: "Leadership bios and headshots to be updated with approved materials."
+    note: "Leadership photos and biographies are sourced from Lighthouse company materials."
   },
   contactPage: {
     hero: {
       eyebrow: "Contact",
-      title: "Start a conversation with Lighthouse Development Partners.",
+      title: "Contact Lighthouse",
       description:
-        "Use the form to introduce a development opportunity, public-sector priority, capital inquiry, vendor question, media request, or general message."
+        "Introduce a site, public-sector priority, capital inquiry, vendor question, media request, or general message."
     },
     inquiryTypes: [
       "Land opportunity",
@@ -934,14 +1093,14 @@ export const site = {
       "Media",
       "General"
     ],
-    emailTodo: "TODO: Confirm official Lighthouse contact email before launch."
+    emailTodo: "Confirm official Lighthouse contact email before launch."
   },
   investorPortalPage: {
     hero: {
       eyebrow: "Investor Portal",
       title: "Secure investor access.",
       description:
-        "The Lighthouse Development Partners investor portal is being integrated into the new website experience."
+        "Investor access is being integrated into the new Lighthouse website."
     },
     message:
       "The Lighthouse Development Partners investor portal is being integrated into the new website experience. Existing investors should continue using their current portal credentials through the approved portal link.",
@@ -956,28 +1115,25 @@ export const site = {
     {
       question: "Can project pipeline details be shared publicly?",
       answer:
-        "Pipeline details available upon request. Public project names, metrics, and partner references should be confirmed internally before publication.",
-      isPlaceholder: true
+        "Pipeline details are handled through direct conversations until a project name, location, scope, and partner reference are approved for public release."
     },
     {
       question: "Can partner logos be displayed?",
       answer:
-        "Partner logos should only be added after Lighthouse confirms approved files and usage rights.",
-      isPlaceholder: true
+        "Partner logos are not displayed unless Lighthouse has approved files and usage rights."
     }
   ] satisfies FAQ[],
   legalPages: {
     privacy: {
       title: "Privacy Policy",
       description:
-        "A placeholder privacy policy for Lighthouse Development Partners' public website.",
+        "Privacy notice for Lighthouse Development Partners' public website.",
       updated: "April 2026",
-      isPlaceholder: true,
       sections: [
         {
           title: "Overview",
           body: [
-            "This placeholder privacy policy describes the type of information that may be provided through this static website. It should be reviewed by counsel before launch."
+            "This privacy notice describes the type of information that may be provided through this static website."
           ]
         },
         {
@@ -995,7 +1151,7 @@ export const site = {
         {
           title: "Contact",
           body: [
-            "Questions about this placeholder policy may be directed to the contact email listed on this website after Lighthouse confirms the official address."
+            "Questions about this policy may be directed to the contact email listed on this website."
           ]
         }
       ]
@@ -1003,9 +1159,8 @@ export const site = {
     terms: {
       title: "Terms of Use",
       description:
-        "Placeholder terms for use of the Lighthouse Development Partners website.",
+        "Terms for use of the Lighthouse Development Partners website.",
       updated: "April 2026",
-      isPlaceholder: true,
       sections: [
         {
           title: "Use of Website",
@@ -1036,9 +1191,8 @@ export const site = {
     accessibility: {
       title: "Accessibility Statement",
       description:
-        "Placeholder accessibility statement for Lighthouse Development Partners.",
+        "Accessibility statement for Lighthouse Development Partners.",
       updated: "April 2026",
-      isPlaceholder: true,
       sections: [
         {
           title: "Commitment",
@@ -1055,13 +1209,7 @@ export const site = {
         {
           title: "Feedback",
           body: [
-            "If you experience difficulty accessing content on this website, please contact Lighthouse using the contact information listed on the site once the official contact email is confirmed."
-          ]
-        },
-        {
-          title: "Review Needed",
-          body: [
-            "This statement should be reviewed before public launch and updated with the final accessibility contact process."
+            "If you experience difficulty accessing content on this website, please contact Lighthouse using the contact information listed on the site."
           ]
         }
       ]
@@ -1074,11 +1222,12 @@ export const routes = [
   "/about",
   "/projects",
   "/projects/reserve-at-eastwood",
+  "/projects/reserve-at-franklin-park",
   "/capabilities",
   "/impact",
   "/partnerships",
   "/news",
-  "/news/reserve-at-eastwood-closing",
+  ...site.news.map((article) => article.href),
   "/team",
   "/contact",
   "/investor-portal",
