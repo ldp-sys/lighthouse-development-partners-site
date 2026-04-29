@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev --webpack",
     "build": "next build --webpack",
-    "lint": "eslint . --max-warnings=0"
+    "lint": "eslint . --max-warnings=0",
+    "preview": "node scripts/preview-static.mjs",
+    "preview:static": "node scripts/preview-static.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.468.0",

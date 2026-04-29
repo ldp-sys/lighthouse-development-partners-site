@@ -22,9 +22,12 @@ npm install
 npm run dev
 npm run lint
 npm run build
+npm run preview
 ```
 
 The static export is written to `out/` after `npm run build`.
+Use `npm run preview` for final review. It serves the production static export
+from `out/` and avoids Next.js development-server behavior in the preview.
 
 ## GitHub Repository Setup
 
