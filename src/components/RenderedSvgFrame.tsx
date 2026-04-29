@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { assetPath } from "@/lib/utils";
 
 type RenderedSvgFrameProps = {
   src: string;
@@ -23,7 +24,7 @@ export function RenderedSvgFrame({
           loading={priority ? undefined : "lazy"}
           priority={priority}
           sizes="(min-width: 1024px) 50vw, 100vw"
-          src={src}
+          src={assetPath(src)}
         />
       </div>
       {label ? (

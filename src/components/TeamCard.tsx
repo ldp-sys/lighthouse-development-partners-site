@@ -4,6 +4,7 @@ import { X } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import type { TeamMember } from "@/data/site";
+import { assetPath } from "@/lib/utils";
 
 export function TeamCard({ member }: { member: TeamMember }) {
   const [open, setOpen] = useState(false);
@@ -17,7 +18,7 @@ export function TeamCard({ member }: { member: TeamMember }) {
             className="h-full w-full object-cover object-top"
             fill
             sizes="(min-width: 1024px) 33vw, 100vw"
-            src={member.image}
+            src={assetPath(member.image)}
           />
         </div>
         <div className="p-6">
@@ -54,7 +55,7 @@ export function TeamCard({ member }: { member: TeamMember }) {
                   className="h-full w-full object-cover object-top"
                   fill
                   sizes="(min-width: 1024px) 34rem, 100vw"
-                  src={member.image}
+                  src={assetPath(member.image)}
                 />
               </div>
               <div className="p-6 sm:p-8">

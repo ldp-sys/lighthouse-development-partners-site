@@ -6,6 +6,7 @@ import { Hero } from "@/components/Hero";
 import { Section } from "@/components/Section";
 import { site } from "@/data/site";
 import { pageMetadata } from "@/lib/metadata";
+import { assetPath } from "@/lib/utils";
 
 export const metadata: Metadata = pageMetadata({
   title: "About",
@@ -30,7 +31,7 @@ export default function AboutPage() {
               className="aspect-[4/3] h-full w-full object-cover"
               height={1600}
               priority
-              src="/images/about-blueprints-stock.jpg"
+              src={assetPath("/images/about-blueprints-stock.jpg")}
               width={1280}
             />
             <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/80 to-transparent p-6 text-white">
