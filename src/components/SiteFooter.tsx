@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { site } from "@/data/site";
 import { Button } from "@/components/Button";
+import { assetPath } from "@/lib/utils";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -35,7 +36,7 @@ export function SiteFooter() {
               alt=""
               className="h-auto w-16"
               height={1230}
-              src={site.company.markLight}
+              src={assetPath(site.company.markLight)}
               width={900}
             />
           </Link>

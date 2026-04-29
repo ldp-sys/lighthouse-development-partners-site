@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import type { ProjectGalleryItem } from "@/data/site";
-import { cn } from "@/lib/utils";
+import { assetPath, cn } from "@/lib/utils";
 
 type RenderingCarouselProps = {
   items: ProjectGalleryItem[];
@@ -36,7 +36,7 @@ export function RenderingCarousel({ items, className }: RenderingCarouselProps) 
             className="h-full w-full object-cover"
             fill
             sizes="(min-width: 1024px) 72rem, 100vw"
-            src={active.image}
+            src={assetPath(active.image)}
           />
           {items.length > 1 ? (
             <div className="absolute inset-x-4 top-1/2 flex -translate-y-1/2 justify-between">
@@ -106,7 +106,7 @@ export function RenderingCarousel({ items, className }: RenderingCarouselProps) 
                   className="h-full w-full object-cover"
                   fill
                   sizes="(min-width: 640px) 18rem, 40vw"
-                  src={item.image}
+                  src={assetPath(item.image)}
                 />
               </span>
               <span className="block px-3 py-2 text-xs font-semibold text-charcoal">

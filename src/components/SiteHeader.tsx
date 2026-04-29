@@ -3,6 +3,7 @@ import Image from "next/image";
 import { site } from "@/data/site";
 import { Button } from "@/components/Button";
 import { MobileNav } from "@/components/MobileNav";
+import { assetPath } from "@/lib/utils";
 
 export function SiteHeader() {
   return (
@@ -28,7 +29,7 @@ export function SiteHeader() {
             className="h-auto w-[156px] max-w-[48vw] sm:w-[170px]"
             height={845}
             priority
-            src={site.company.logo}
+            src={assetPath(site.company.logo)}
             width={1600}
           />
         </Link>

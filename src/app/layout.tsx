@@ -5,7 +5,7 @@ import "@/app/globals.css";
 import { site } from "@/data/site";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
-import { absoluteUrl } from "@/lib/utils";
+import { absoluteUrl, assetPath } from "@/lib/utils";
 
 const serif = Libre_Baskerville({
   subsets: ["latin"],
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
   description: site.seo.homeDescription,
   icons: {
-    icon: site.company.mark
+    icon: assetPath(site.company.mark)
   },
   openGraph: {
     title: site.seo.homeTitle,
