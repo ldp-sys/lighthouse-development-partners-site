@@ -1,0 +1,4 @@
+:HL["/lighthouse-development-partners-site/_next/static/media/cccb76cee38030ea-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/lighthouse-development-partners-site/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/lighthouse-development-partners-site/_next/static/css/51fb6d89f9259cbe.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"news","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"affordable-housing-development-florida-public-private-partnerships","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"VUERKP7d8M4HLlHnSK2D7"}
