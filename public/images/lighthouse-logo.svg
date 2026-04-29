@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" role="img" aria-labelledby="title desc">
+  <title id="title">Lighthouse Development Partners logo</title>
+  <desc id="desc">Lighthouse Development Partners wordmark with geometric lighthouse mark.</desc>
+  <rect width="520" height="120" rx="8" fill="#FAF8F2"/>
+  <rect x="18" y="18" width="84" height="84" rx="8" fill="#0E1B2A"/>
+  <path d="M60 30 72 88H48L60 30Z" fill="#FAF8F2"/>
+  <path d="M54 57h12M52 69h16M50 81h20" stroke="#0E1B2A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M60 30 92 45H64L60 30Z" fill="#C7A24A"/>
+  <path d="M60 30 28 45h28l4-15Z" fill="#1F6F73"/>
+  <circle cx="60" cy="43" r="4" fill="#0E1B2A"/>
+  <text x="124" y="58" fill="#0E1B2A" font-family="Georgia, serif" font-size="34" font-weight="600">Lighthouse</text>
+  <text x="126" y="82" fill="#5F6B76" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="3">DEVELOPMENT PARTNERS</text>
+</svg>

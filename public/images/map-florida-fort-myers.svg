@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
+  <title id="title">Florida Fort Myers map placeholder</title>
+  <desc id="desc">Abstract Florida map placeholder highlighting Southwest Florida.</desc>
+  <rect width="1200" height="750" fill="#FAF8F2"/>
+  <path d="M704 88c-64 38-96 96-96 174 0 51 24 93 72 126 40 28 58 60 54 96-6 54 27 104 98 150l94 60 50-82-68-62c-36-32-48-65-36-98 13-36 6-72-22-108-46-60-52-120-18-180l36-62-164-14Z" fill="#123B52"/>
+  <path d="M718 126c-42 34-62 78-60 132 2 44 24 80 66 108 44 30 65 69 62 118-3 48 22 90 76 126l42 28" fill="none" stroke="#1F6F73" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="778" cy="500" r="18" fill="#C7A24A"/>
+  <circle cx="778" cy="500" r="44" fill="none" stroke="#C7A24A" stroke-width="4"/>
+  <text x="104" y="174" fill="#0E1B2A" font-family="Georgia, serif" font-size="48" font-weight="600">Southwest Florida</text>
+  <text x="104" y="220" fill="#5F6B76" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">FORT MYERS CONTEXT PLACEHOLDER</text>
+  <g fill="none" stroke="#D8D3C7" stroke-width="2">
+    <path d="M104 286h400M104 360h400M104 434h400M104 508h400"/>
+    <path d="M104 286v222M204 286v222M304 286v222M404 286v222M504 286v222"/>
+  </g>
+  <path d="M108 610c116-52 230-52 342 0 112 52 222 52 330 0 108-52 212-52 312 0" stroke="#1F6F73" stroke-width="9" stroke-linecap="round" fill="none"/>
+</svg>

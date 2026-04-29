@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
+  <title id="title">Reserve at Eastwood site plan placeholder</title>
+  <desc id="desc">Abstract site plan with parcels, circulation, water, amenities, and building pads.</desc>
+  <rect width="1200" height="750" fill="#F3EFE6"/>
+  <path d="M96 82h1008v586H96Z" fill="#FAF8F2" stroke="#0E1B2A" stroke-width="8"/>
+  <path d="M164 148h872v452H164Z" fill="none" stroke="#D8D3C7" stroke-width="3"/>
+  <path d="M224 206h254v102H224Z" fill="#123B52"/>
+  <path d="M722 206h254v102H722Z" fill="#123B52"/>
+  <path d="M224 444h254v102H224Z" fill="#123B52"/>
+  <path d="M722 444h254v102H722Z" fill="#123B52"/>
+  <path d="M506 286h188v178H506Z" fill="#C7A24A"/>
+  <path d="M240 360h720" stroke="#1F6F73" stroke-width="30" stroke-linecap="round"/>
+  <path d="M600 212v300" stroke="#1F6F73" stroke-width="30" stroke-linecap="round"/>
+  <path d="M536 334c60-38 122-38 186 0 38 23 62 60 66 109-74 31-164 35-248 8-46-15-69-44-66-86 2-14 21-24 62-31Z" fill="#0E1B2A" opacity="0.78"/>
+  <path d="M268 230h166M766 230h166M268 468h166M766 468h166" stroke="#FAF8F2" stroke-width="8" stroke-linecap="round"/>
+  <g fill="#1F6F73">
+    <circle cx="214" cy="626" r="18"/>
+    <circle cx="272" cy="626" r="18"/>
+    <circle cx="330" cy="626" r="18"/>
+    <circle cx="946" cy="132" r="18"/>
+    <circle cx="1004" cy="132" r="18"/>
+  </g>
+  <text x="132" y="56" fill="#0E1B2A" font-family="Georgia, serif" font-size="36" font-weight="600">Abstract Site Plan</text>
+  <text x="132" y="712" fill="#5F6B76" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">PARCEL GEOMETRY FOR PLACEHOLDER USE ONLY</text>
+</svg>

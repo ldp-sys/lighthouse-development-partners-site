@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
+  <title id="title">Abstract coastal development grid</title>
+  <desc id="desc">Coastal grid placeholder with parcel geometry and lighthouse beam motif.</desc>
+  <rect width="1200" height="750" fill="#FAF8F2"/>
+  <path d="M0 0h1200v750H0Z" fill="#F3EFE6"/>
+  <path d="M0 148 682 0h518v250L0 398Z" fill="#C7A24A" opacity="0.18"/>
+  <path d="M0 520c150-70 300-70 450 0s300 70 450 0 250-70 300-42v272H0Z" fill="#123B52"/>
+  <g fill="none" stroke="#D8D3C7" stroke-width="2">
+    <path d="M96 92h1008v452H96Z"/>
+    <path d="M96 205h1008M96 318h1008M96 431h1008"/>
+    <path d="M240 92v452M384 92v452M528 92v452M672 92v452M816 92v452M960 92v452"/>
+  </g>
+  <g fill="#0E1B2A">
+    <rect x="168" y="158" width="168" height="88" rx="8"/>
+    <rect x="408" y="158" width="276" height="88" rx="8"/>
+    <rect x="756" y="158" width="276" height="88" rx="8"/>
+    <rect x="168" y="334" width="276" height="92" rx="8"/>
+    <rect x="516" y="334" width="168" height="92" rx="8"/>
+    <rect x="756" y="334" width="276" height="92" rx="8"/>
+  </g>
+  <path d="M198 594c84-36 168-36 252 0M766 594c84-36 168-36 252 0" stroke="#1F6F73" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <text x="96" y="660" fill="#FAF8F2" font-family="Georgia, serif" font-size="42" font-weight="600">Pipeline Placeholder</text>
+  <text x="96" y="698" fill="#D8D3C7" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">REPLACE WITH APPROVED PROJECT PHOTOGRAPHY</text>
+</svg>
