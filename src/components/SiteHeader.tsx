@@ -9,7 +9,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-white/10 bg-harbor text-white shadow-[0_12px_36px_rgba(7,23,97,0.12)] backdrop-blur">
       <div
         aria-hidden
-        className="absolute inset-0 bg-[linear-gradient(110deg,rgba(255,255,255,0.08),transparent_34%,rgba(183,154,86,0.14))]"
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(110deg,rgba(255,255,255,0.08),transparent_34%,rgba(183,154,86,0.14))]"
       />
       <a
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-card focus:bg-gold focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-navy"

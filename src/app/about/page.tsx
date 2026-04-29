@@ -33,7 +33,7 @@ export default function AboutPage() {
               src="/images/about-blueprints-stock.jpg"
               width={1280}
             />
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/80 to-transparent p-6 text-white">
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/80 to-transparent p-6 text-white">
               <p className="max-w-sm text-sm font-semibold leading-6">
                 Site strategy, design coordination, finance, approvals, and delivery.
               </p>

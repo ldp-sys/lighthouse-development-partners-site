@@ -23,7 +23,7 @@ export function SiteFooter() {
       <div className="relative overflow-hidden">
         <div
           aria-hidden
-          className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(183,154,86,0.24),transparent_34%),linear-gradient(145deg,rgba(7,23,97,0.42),transparent_46%)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(183,154,86,0.24),transparent_34%),linear-gradient(145deg,rgba(7,23,97,0.42),transparent_46%)]"
         />
         <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[0.9fr_1.1fr_0.9fr] lg:items-start lg:px-8">
           <Link
