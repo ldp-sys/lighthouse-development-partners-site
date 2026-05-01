@@ -15,7 +15,7 @@ export function TeamCard({ member }: { member: TeamMember }) {
         <div className="relative aspect-[4/5] bg-sand">
           <Image
             alt={member.imageAlt}
-            className="h-full w-full object-cover object-top"
+            className="h-full w-full object-cover object-center"
             fill
             sizes="(min-width: 1024px) 33vw, 100vw"
             src={assetPath(member.image)}
@@ -52,7 +52,7 @@ export function TeamCard({ member }: { member: TeamMember }) {
               <div className="relative min-h-[340px] bg-sand">
                 <Image
                   alt={member.imageAlt}
-                  className="h-full w-full object-cover object-top"
+                  className="h-full w-full object-cover object-center"
                   fill
                   sizes="(min-width: 1024px) 34rem, 100vw"
                   src={assetPath(member.image)}

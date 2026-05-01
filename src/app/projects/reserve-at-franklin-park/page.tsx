@@ -1,7 +1,24 @@
 import type { Metadata } from "next";
-import { ArrowRight } from "lucide-react";
+import {
+  BriefcaseBusiness,
+  CircleDot,
+  Dumbbell,
+  Fan,
+  HandCoins,
+  HeartPulse,
+  House,
+  Lamp,
+  LandPlot,
+  Layers3,
+  Lightbulb,
+  PackageCheck,
+  PanelsTopLeft,
+  Sparkles,
+  Users,
+  WashingMachine,
+  type LucideIcon
+} from "lucide-react";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { Button } from "@/components/Button";
 import { CTASection } from "@/components/CTASection";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Hero } from "@/components/Hero";
@@ -16,6 +33,35 @@ const project = site.projects.find(
   (item) => item.slug === "reserve-at-franklin-park"
 )!;
 
+const unitFeatureIcons: Record<string, LucideIcon> = {
+  "Granite countertops": Sparkles,
+  "Modern wood cabinetry": PanelsTopLeft,
+  "Luxury vinyl plank flooring": Layers3,
+  "Recessed LED lighting": Lightbulb,
+  "Ceiling fans": Fan,
+  "Energy Star full-size appliances": Lamp,
+  "In-unit washer/dryers": WashingMachine
+};
+
+const amenityIcons: Record<string, LucideIcon> = {
+  "Detached clubhouse": House,
+  "On-site management and maintenance offices": Users,
+  Clubroom: House,
+  "Business center": BriefcaseBusiness,
+  "Fitness center": Dumbbell,
+  "Secure parcel lockers": PackageCheck,
+  "Basketball court": CircleDot,
+  "Playground and separate tot-lot": LandPlot,
+  "Covered patio with grilling": House
+};
+
+const residentServiceIcons: Record<string, LucideIcon> = {
+  "Employment assistance": BriefcaseBusiness,
+  "Financial literacy": HandCoins,
+  "Health and wellness programming": HeartPulse,
+  "Coordination with local partners": Users
+};
+
 export const metadata: Metadata = pageMetadata({
   title: "Reserve at Franklin Park",
   description:
@@ -28,11 +74,9 @@ export default function ReserveAtFranklinParkPage() {
   return (
     <>
       <Hero
-        description="96 affordable homes planned for households at or below 70% AMI in Fort Myers' Dunbar neighborhood."
+        carouselItems={project.gallery}
+        description={project.heroDescription ?? project.summary}
         eyebrow={project.location}
-        image={project.image}
-        imageAlt={project.imageAlt}
-        stats={project.stats}
         title={project.name}
       />
 
@@ -55,18 +99,10 @@ export default function ReserveAtFranklinParkPage() {
           <div>
             <Eyebrow>Project Narrative</Eyebrow>
             <h2 className="font-serif text-3xl font-bold leading-tight text-navy sm:text-4xl">
-              Family-sized affordable housing in the Dunbar neighborhood.
+              {project.narrativeTitle ?? project.name}
             </h2>
           </div>
-          <div className="grid gap-5 text-lg leading-9 text-slate">
-            <p>{project.description}</p>
-            <p>
-              The plan replaces a long-standing blighted use with new housing,
-              a clubhouse, resident amenities, and a program intended to support
-              household stability. Company materials identify financial closing
-              as targeted for Q2 2026, with construction activity to follow.
-            </p>
-          </div>
+          <p className="text-lg leading-9 text-slate">{project.description}</p>
         </div>
       </Section>
 
@@ -74,32 +110,17 @@ export default function ReserveAtFranklinParkPage() {
         <div className="mb-10">
           <Eyebrow>Project Views</Eyebrow>
           <h2 className="font-serif text-3xl font-bold leading-tight text-navy sm:text-4xl">
-            Reserve at Franklin Park.
+            {project.viewsTitle ?? "Project views"}
           </h2>
-          <p className="mt-4 max-w-3xl text-base leading-8 text-slate">
-            Main entry, community edge, courtyard, clubhouse, and arrival views.
-          </p>
         </div>
         <RenderingCarousel items={project.gallery} />
       </Section>
 
       <Section className="bg-sand">
-        <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-          <div>
-            <Eyebrow>Location</Eyebrow>
-            <h2 className="font-serif text-3xl font-bold leading-tight text-navy">
-              Dunbar and MLK redevelopment context.
-            </h2>
-            <p className="mt-4 text-base leading-8 text-slate">
-              Company materials locate Reserve at Franklin Park within the
-              Dunbar community of Fort Myers, including the MLK Redevelopment
-              Area and the Fort Myers / Lee County Enterprise Zone.
-            </p>
-          </div>
-          {project.mapImage && project.mapAlt ? (
-            <ImageFrame alt={project.mapAlt} src={project.mapImage} />
-          ) : null}
-        </div>
+        <h2 className="sr-only">Reserve at Franklin Park location map</h2>
+        {project.mapImage && project.mapAlt ? (
+          <ImageFrame alt={project.mapAlt} src={project.mapImage} />
+        ) : null}
       </Section>
 
       <Section className="bg-warm">
@@ -110,15 +131,21 @@ export default function ReserveAtFranklinParkPage() {
               Larger homes for family households.
             </h2>
             <ul className="mt-6 grid gap-3">
-              {project.unitFeatures.map((feature) => (
-                <li
-                  className="flex items-center gap-3 rounded-card border border-border bg-white p-4 text-sm font-semibold text-charcoal shadow-line"
-                  key={feature}
-                >
-                  <ArrowRight aria-hidden className="h-4 w-4 text-teal" />
-                  {feature}
-                </li>
-              ))}
+              {project.unitFeatures.map((feature) => {
+                const Icon = unitFeatureIcons[feature] ?? CircleDot;
+
+                return (
+                  <li
+                    className="flex items-center gap-3 rounded-card border border-border bg-white p-4 text-sm font-semibold text-charcoal shadow-line"
+                    key={feature}
+                  >
+                    <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sand text-harbor">
+                      <Icon aria-hidden className="h-4 w-4" />
+                    </span>
+                    {feature}
+                  </li>
+                );
+              })}
             </ul>
           </div>
           <div>
@@ -127,14 +154,21 @@ export default function ReserveAtFranklinParkPage() {
               Community amenities.
             </h2>
             <ul className="mt-6 grid gap-3">
-              {project.amenities.map((amenity) => (
-                <li
-                  className="rounded-card border border-border bg-white p-4 text-sm font-semibold text-charcoal shadow-line"
-                  key={amenity}
-                >
-                  {amenity}
-                </li>
-              ))}
+              {project.amenities.map((amenity) => {
+                const Icon = amenityIcons[amenity] ?? CircleDot;
+
+                return (
+                  <li
+                    className="flex items-center gap-3 rounded-card border border-border bg-white p-4 text-sm font-semibold text-charcoal shadow-line"
+                    key={amenity}
+                  >
+                    <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sand text-harbor">
+                      <Icon aria-hidden className="h-4 w-4" />
+                    </span>
+                    {amenity}
+                  </li>
+                );
+              })}
             </ul>
           </div>
           <div>
@@ -143,54 +177,23 @@ export default function ReserveAtFranklinParkPage() {
               Planned support services.
             </h2>
             <ul className="mt-6 grid gap-3">
-              {project.residentServices?.map((service) => (
-                <li
-                  className="rounded-card border border-border bg-white p-4 text-sm font-semibold text-charcoal shadow-line"
-                  key={service}
-                >
-                  {service}
-                </li>
-              ))}
+              {project.residentServices?.map((service) => {
+                const Icon = residentServiceIcons[service] ?? CircleDot;
+
+                return (
+                  <li
+                    className="flex items-center gap-3 rounded-card border border-border bg-white p-4 text-sm font-semibold text-charcoal shadow-line"
+                    key={service}
+                  >
+                    <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sand text-harbor">
+                      <Icon aria-hidden className="h-4 w-4" />
+                    </span>
+                    {service}
+                  </li>
+                );
+              })}
             </ul>
           </div>
-        </div>
-      </Section>
-
-      <Section className="bg-navy text-white">
-        <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-          <div>
-            <Eyebrow className="text-gold">Sustainability</Eyebrow>
-            <h2 className="font-serif text-3xl font-bold leading-tight text-white sm:text-4xl">
-              Planned to NGBS specifications.
-            </h2>
-          </div>
-          <p className="text-lg leading-9 text-white/76">
-            {project.sustainability}
-          </p>
-        </div>
-      </Section>
-
-      <Section>
-        <div className="mb-10">
-          <Eyebrow>Project Ecosystem</Eyebrow>
-          <h2 className="font-serif text-3xl font-bold leading-tight text-navy sm:text-4xl">
-            Development workstreams.
-          </h2>
-        </div>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {project.ecosystem.map((item) => (
-            <div
-              className="rounded-card border border-border bg-white p-5 text-sm font-semibold text-charcoal shadow-line"
-              key={item}
-            >
-              {item}
-            </div>
-          ))}
-        </div>
-        <div className="mt-8">
-          <Button href="/contact?inquiry=Public-sector%20partnership">
-            Discuss a partnership opportunity
-          </Button>
         </div>
       </Section>
 

@@ -8,19 +8,23 @@ import { Icon } from "@/components/Icon";
 import { NewsCard } from "@/components/NewsCard";
 import { ProjectCard } from "@/components/ProjectCard";
 import { Section } from "@/components/Section";
-import { StatCard } from "@/components/StatCard";
 import { site } from "@/data/site";
 
 export default function HomePage() {
+  const heroRenderings = site.projects.flatMap((project) =>
+    project.gallery.map((item) => ({
+      ...item,
+      title: `${project.name}: ${item.title}`
+    }))
+  );
+
   return (
     <>
       <Hero
+        carouselItems={heroRenderings}
         ctas={site.home.hero.ctas}
         description={site.home.hero.description}
         eyebrow={site.home.hero.eyebrow}
-        image={site.home.hero.image}
-        imageAlt={site.home.hero.imageAlt}
-        stats={site.home.hero.stats}
         title={site.home.hero.title}
       />
 
@@ -103,20 +107,6 @@ export default function HomePage() {
                 {partner.description}
               </p>
             </div>
-          ))}
-        </div>
-      </Section>
-
-      <Section className="bg-navy text-white">
-        <div className="mb-10">
-          <Eyebrow className="text-gold">Impact Snapshot</Eyebrow>
-          <h2 className="font-serif text-3xl font-bold leading-tight text-white sm:text-4xl">
-            Current project metrics.
-          </h2>
-        </div>
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {site.home.impactStats.map((stat) => (
-            <StatCard className="bg-white" key={stat.label} stat={stat} />
           ))}
         </div>
       </Section>

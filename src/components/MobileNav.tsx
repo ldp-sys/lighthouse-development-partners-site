@@ -27,7 +27,7 @@ export function MobileNav({ navItems }: MobileNavProps) {
       </button>
       {open ? (
         <div
-          className="absolute inset-x-4 top-[88px] z-50 rounded-card border border-border bg-warm p-4 shadow-soft"
+          className="absolute inset-x-4 top-full z-50 mt-3 rounded-card border border-border bg-warm p-4 shadow-soft"
           id="mobile-navigation"
         >
           <nav aria-label="Mobile navigation" className="grid gap-1">

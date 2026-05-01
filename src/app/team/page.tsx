@@ -25,9 +25,6 @@ export default function TeamPage() {
             <TeamCard key={member.name} member={member} />
           ))}
         </div>
-        <p className="mt-8 max-w-3xl text-sm leading-7 text-slate">
-          {site.teamPage.note}
-        </p>
       </Section>
     </>
   );

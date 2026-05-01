@@ -17,7 +17,7 @@ export function CTASection({ title, description, ctas }: CTASectionProps) {
           <h2 className="font-serif text-3xl font-bold leading-tight text-white sm:text-4xl">
             {title}
           </h2>
-          <p className="mt-4 max-w-3xl text-base leading-8 text-white/76">
+          <p className="mt-4 max-w-3xl text-base leading-8 text-white/90">
             {description}
           </p>
         </div>

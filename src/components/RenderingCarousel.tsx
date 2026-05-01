@@ -1,8 +1,8 @@
 "use client";
 
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { ProjectGalleryItem } from "@/data/site";
 import { assetPath, cn } from "@/lib/utils";
 
@@ -13,7 +13,24 @@ type RenderingCarouselProps = {
 
 export function RenderingCarousel({ items, className }: RenderingCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const active = items[activeIndex];
+
+  useEffect(() => {
+    if (
+      isPaused ||
+      items.length <= 1 ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      return;
+    }
+
+    const interval = window.setInterval(() => {
+      setActiveIndex((index) => (index === items.length - 1 ? 0 : index + 1));
+    }, 5000);
+
+    return () => window.clearInterval(interval);
+  }, [isPaused, items.length]);
 
   if (!active) {
     return null;
@@ -69,26 +86,40 @@ export function RenderingCarousel({ items, className }: RenderingCarouselProps) 
             </h3>
           </div>
           {items.length > 1 ? (
-            <div className="flex flex-wrap gap-2">
-              {items.map((item, index) => (
-                <button
-                  aria-label={`Show ${item.title}`}
-                  aria-pressed={index === activeIndex}
-                  className={cn(
-                    "h-2.5 w-9 rounded-full border border-border bg-muted transition",
-                    index === activeIndex && "border-gold bg-gold"
-                  )}
-                  key={item.image}
-                  onClick={() => setActiveIndex(index)}
-                  type="button"
-                />
-              ))}
+            <div className="flex items-center gap-3">
+              <div className="flex flex-wrap gap-2">
+                {items.map((item, index) => (
+                  <button
+                    aria-label={`Show ${item.title}`}
+                    aria-pressed={index === activeIndex}
+                    className={cn(
+                      "h-2.5 w-9 rounded-full border border-border bg-muted transition",
+                      index === activeIndex && "border-gold bg-gold"
+                    )}
+                    key={item.image}
+                    onClick={() => setActiveIndex(index)}
+                    type="button"
+                  />
+                ))}
+              </div>
+              <button
+                aria-label={isPaused ? "Resume rendering slideshow" : "Pause rendering slideshow"}
+                className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border bg-white text-harbor transition hover:border-gold hover:text-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+                onClick={() => setIsPaused((paused) => !paused)}
+                type="button"
+              >
+                {isPaused ? (
+                  <Play aria-hidden className="h-4 w-4" />
+                ) : (
+                  <Pause aria-hidden className="h-4 w-4" />
+                )}
+              </button>
             </div>
           ) : null}
         </figcaption>
       </figure>
       {items.length > 1 ? (
-        <div className="grid gap-2 border-t border-border bg-warm p-3 sm:grid-cols-4">
+        <div className="grid gap-2 border-t border-border bg-warm p-3 sm:grid-cols-2 lg:grid-cols-5">
           {items.map((item, index) => (
             <button
               aria-label={`Select ${item.title}`}

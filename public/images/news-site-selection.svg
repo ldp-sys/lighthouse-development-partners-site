@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Site selection editorial graphic</title>
+  <desc id="desc">Parcel map, street network, and location marker in Lighthouse brand colors.</desc>
+  <rect width="1600" height="1000" fill="#fbfaf7"/>
+  <path d="M130 785 520 150l950 165-360 555z" fill="#f2f0ea" stroke="#cbc6b9" stroke-width="5"/>
+  <g fill="none" stroke="#cbc6b9" stroke-width="5">
+    <path d="M290 525 1210 685M410 330l860 145M605 180 305 780M820 200 510 815M1030 238 730 850M1240 275 930 875"/>
+  </g>
+  <path d="M185 665 1460 390" stroke="#3b4c8a" stroke-width="46" stroke-linecap="round" opacity=".9"/>
+  <path d="M215 665 1430 404" stroke="#fbfaf7" stroke-width="10" stroke-linecap="round" stroke-dasharray="34 34" opacity=".72"/>
+  <path d="M785 235c-98 0-178 79-178 177 0 139 178 315 178 315s178-176 178-315c0-98-80-177-178-177z" fill="#17224f"/>
+  <circle cx="785" cy="410" r="72" fill="#b79a56"/>
+  <circle cx="785" cy="410" r="28" fill="#fbfaf7"/>
+  <g fill="#356874" opacity=".85">
+    <rect x="330" y="225" width="110" height="85" rx="5"/>
+    <rect x="1130" y="600" width="130" height="95" rx="5"/>
+    <rect x="1020" y="190" width="95" height="110" rx="5"/>
+  </g>
+</svg>

@@ -75,6 +75,9 @@ export type Project = {
   status: string;
   statusDetail?: string;
   summary: string;
+  heroDescription?: string;
+  narrativeTitle?: string;
+  viewsTitle?: string;
   description: string;
   image: string;
   imageAlt: string;
@@ -215,16 +218,7 @@ export const site = {
         { label: "View Our Work", href: "/projects" },
         { label: "Partner With Us", href: "/partnerships" },
         { label: "Investor Portal", href: "/investor-portal" }
-      ],
-      image: "/images/reserve-eastwood-hero.jpg",
-      imageAlt:
-        "Reserve at Eastwood exterior rendering in Fort Myers, Florida",
-      stats: [
-        { value: "384", label: "Affordable homes in active project work" },
-        { value: "2", label: "Active affordable communities" },
-        { value: "3", label: "Development sectors" },
-        { value: "Florida", label: "Headquartered platform" }
-      ] satisfies Stat[]
+      ]
     },
     credibility: {
       eyebrow: "Development Platform",
@@ -284,12 +278,6 @@ export const site = {
         icon: "factory"
       }
     ] satisfies PartnerCategory[],
-    impactStats: [
-      { value: "384", label: "Affordable homes across active project work" },
-      { value: "30%-70%", label: "AMI bands served" },
-      { value: "EnergyStar / NGBS", label: "Sustainable specifications" },
-      { value: "Florida-based", label: "Development platform" }
-    ] satisfies Stat[],
     finalCta: {
       title: "Aligned early. Executed carefully.",
       description:
@@ -428,14 +416,19 @@ export const site = {
       status: "Under Construction",
       statusDetail: "Financial closing completed",
       summary:
-        "A 288-unit affordable multifamily community at Ortiz Avenue and Hanson Street in Fort Myers.",
+        "A 288-home affordable community near Ortiz Avenue and Hanson Street in Fort Myers.",
+      heroDescription:
+        "A 288-home affordable community near Ortiz Avenue and Hanson Street, with family-sized apartments, resident amenities, and durable design for long-term neighborhood value.",
+      narrativeTitle: "A well-located affordable community in Fort Myers.",
+      viewsTitle: "Site, clubhouse, and resident amenities.",
       description:
-        "Reserve at Eastwood is a 288-unit affordable multifamily community serving a range of household sizes and income levels in Fort Myers. The development combines one-, two-, three-, and four-bedroom homes with resident amenities, durable interior finishes, and recognized sustainable building specifications.",
+        "Reserve at Eastwood is planned as a 288-home affordable multifamily community on a Fort Myers site positioned along the Ortiz Avenue corridor. The plan pairs seven three-story garden-style residential buildings with a clubhouse, family-sized apartments, everyday resident amenities, and durable finishes. Adjacent commercial uses and nearby transit, retail, employment, and recreation connections are expected to support a more complete neighborhood setting.",
       image: "/images/reserve-eastwood-hero.jpg",
       imageAlt:
         "Reserve at Eastwood exterior rendering in Fort Myers, Florida",
       mapImage: "/images/reserve-eastwood-location-map.jpg",
-      mapAlt: "OpenStreetMap location map for Reserve at Eastwood in Fort Myers",
+      mapAlt:
+        "Map of Reserve at Eastwood showing nearby schools, grocery stores, pharmacy, and LeeTran service",
       gallery: [
         {
           title: "Entry and Clubhouse",
@@ -456,21 +449,34 @@ export const site = {
           title: "Site Aerial",
           image: "/images/reserve-eastwood-site-aerial.jpg",
           alt: "Reserve at Eastwood aerial rendering showing buildings, parking, pond, and amenities"
+        },
+        {
+          title: "Aerial Overview",
+          image: "/images/reserve-eastwood-aerial.jpg",
+          alt: "Reserve at Eastwood aerial overview rendering showing the full development context"
         }
       ],
       stats: [
         { value: "288", label: "Affordable housing units" },
         { value: "30%, 50%, 60%, 70%", label: "AMI bands" },
-        { value: "1-4 BR", label: "Apartment mix" },
+        { value: "60 / 102 / 84 / 42", label: "1BR / 2BR / 3BR / 4BR" },
         { value: "EnergyStar / NGBS", label: "Design specifications" }
       ],
       facts: [
         { value: "288", label: "Affordable housing units" },
         { value: "30%, 50%, 60%, 70%", label: "AMI bands" },
-        { value: "1-, 2-, 3-, and 4-bedroom", label: "Apartment mix" },
-        { value: "Ortiz Ave and Hanson St", label: "Location", description: "Fort Myers, Florida" },
+        {
+          value: "60 1BR / 102 2BR / 84 3BR / 42 4BR",
+          label: "Apartment mix",
+          description: "One-, two-, three-, and four-bedroom homes"
+        },
+        {
+          value: "5100 Eastwood Dr, Fort Myers, FL 33905",
+          label: "Location",
+          description: "(South East Corner, Ortiz Ave and Hanson St)"
+        },
         { value: "EnergyStar / NGBS", label: "Specifications" },
-        { value: "Financial closing completed", label: "Status", description: "Moving into construction" }
+        { value: "Under Construction", label: "Status", description: "Financial closing completed" }
       ],
       tags: ["Affordable Housing", "Under Construction", "Florida"],
       unitFeatures: [
@@ -506,20 +512,24 @@ export const site = {
       name: "Reserve at Franklin Park",
       href: "/projects/reserve-at-franklin-park",
       location: "Fort Myers, Florida",
-      locationDetail: "Henderson Avenue / Dunbar neighborhood",
+      locationDetail: "Franklin Park Drive / Dunbar neighborhood",
       type: "Affordable Housing",
       status: "Predevelopment",
       statusDetail: "Financial closing targeted for Q2 2026",
       summary:
         "A 96-unit affordable housing community planned for Fort Myers' Dunbar neighborhood.",
+      heroDescription:
+        "A 96-home affordable community planned for the Dunbar neighborhood, with family-sized apartments, resident amenities, and a program oriented around household stability.",
+      narrativeTitle: "Family-sized affordable housing in the Dunbar neighborhood.",
+      viewsTitle: "Entry, clubhouse, and residential courtyards.",
       description:
-        "Reserve at Franklin Park is planned as a 96-unit affordable housing community in the Dunbar neighborhood of Fort Myers. Company materials describe a family-oriented development with two-, three-, and four-bedroom homes, a detached clubhouse, resident amenities, and income-restricted units serving households at or below 70% AMI.",
+        "Reserve at Franklin Park is planned as a 96-home affordable housing community in the Dunbar neighborhood of Fort Myers. Company materials describe a family-oriented development with two-, three-, and four-bedroom homes, a detached clubhouse, resident amenities, and income-restricted units serving households at or below 70% AMI. The plan replaces a long-standing blighted use with new housing and coordinated resident support services.",
       image: "/images/reserve-franklin-park-01.jpg",
       imageAlt:
         "Reserve at Franklin Park street-level rendering in Fort Myers, Florida",
       mapImage: "/images/reserve-franklin-park-location-map.jpg",
       mapAlt:
-        "OpenStreetMap location map for Reserve at Franklin Park near Henderson Avenue in Fort Myers",
+        "Map of Reserve at Franklin Park showing nearby schools, grocery, pharmacy, and LeeTran access",
       gallery: [
         {
           title: "Main Entry",
@@ -557,7 +567,11 @@ export const site = {
         { value: "96", label: "Affordable housing units" },
         { value: "30%, 60%, 70%", label: "AMI bands" },
         { value: "48 two-bedroom / 36 three-bedroom / 12 four-bedroom", label: "Unit mix" },
-        { value: "Henderson Avenue", label: "Location", description: "Dunbar neighborhood, Fort Myers" },
+        {
+          value: "Franklin Park Dr, Fort Myers, FL 33916",
+          label: "Location",
+          description: "Dunbar neighborhood"
+        },
         { value: "NGBS", label: "Specification" },
         { value: "Predevelopment", label: "Status", description: "Financial closing targeted for Q2 2026" }
       ],
@@ -852,11 +866,28 @@ export const site = {
       imageAlt: "Reserve at Eastwood exterior rendering"
     },
     {
+      slug: "site-control-to-construction-affordable-housing-closing",
+      title: "From Site Control to Construction: The Work Behind an Affordable Housing Closing",
+      href: "/news/site-control-to-construction-affordable-housing-closing",
+      category: "Insight",
+      date: "March 2026",
+      deck:
+        "A successful closing depends on years of coordinated work across land, approvals, capital, design, construction, and compliance.",
+      body: [
+        "The public milestone is usually the closing. The work begins much earlier.",
+        "Affordable housing development requires site control, entitlement strategy, environmental review, utility coordination, construction pricing, capital commitments, legal documentation, and compliance planning to move in the same direction.",
+        "Each workstream affects the others. A design change can affect cost. A financing condition can affect timing. A municipal requirement can affect site planning. Development execution is the discipline of keeping those dependencies visible and resolved.",
+        "When a project moves from closing into construction, the milestone reflects more than financing. It reflects a coordinated development plan that is ready to become a real community."
+      ],
+      image: "/images/news-development-process.svg",
+      imageAlt: "Editorial graphic showing development milestones"
+    },
+    {
       slug: "reserve-at-franklin-park-affordable-housing-fort-myers",
       title: "Reserve at Franklin Park Advances as a Planned Affordable Housing Community in Fort Myers",
       href: "/news/reserve-at-franklin-park-affordable-housing-fort-myers",
       category: "Project Update",
-      date: "April 2026",
+      date: "February 2026",
       deck:
         "The planned 96-unit community reflects Lighthouse's focus on family-sized affordable housing, neighborhood reinvestment, and disciplined predevelopment work.",
       body: [
@@ -873,7 +904,7 @@ export const site = {
       title: "Why Public-Private Partnerships Matter in Florida Affordable Housing Development",
       href: "/news/affordable-housing-development-florida-public-private-partnerships",
       category: "Insight",
-      date: "April 2026",
+      date: "December 2025",
       deck:
         "Affordable housing projects succeed when public priorities, private execution, capital sources, and community expectations are aligned early.",
       body: [
@@ -882,15 +913,15 @@ export const site = {
         "In Florida, where population growth and housing cost pressures remain significant, partnership discipline can determine whether a viable site becomes a delivered community or stalls in predevelopment.",
         "Lighthouse's role is to coordinate that work with clear milestones, defensible project information, and a practical path from concept to closing."
       ],
-      image: "/images/about-blueprints-stock.jpg",
-      imageAlt: "Architectural drawings used for development planning"
+      image: "/images/news-public-private.svg",
+      imageAlt: "Editorial graphic showing public and private partners connected around a development parcel"
     },
     {
       slug: "how-ami-works-in-affordable-housing-development",
       title: "How AMI Works in Affordable Housing Development",
       href: "/news/how-ami-works-in-affordable-housing-development",
       category: "Guide",
-      date: "April 2026",
+      date: "October 2025",
       deck:
         "Area Median Income is one of the core measures used to determine who affordable housing serves and how rents are structured.",
       body: [
@@ -899,15 +930,15 @@ export const site = {
         "AMI is not a marketing label. It is a technical tool that shapes resident eligibility, underwriting, rent levels, and reporting. Developers need to treat AMI structure as a central part of project planning from the beginning.",
         "For residents and public stakeholders, clear AMI communication helps explain who a community is intended to serve and why affordability restrictions matter over time."
       ],
-      image: "/images/reserve-eastwood-amenities.jpg",
-      imageAlt: "Reserve at Eastwood amenity rendering"
+      image: "/images/news-ami-guide.svg",
+      imageAlt: "Editorial graphic showing income bands and planning lines"
     },
     {
       slug: "lihtc-capital-stack-affordable-housing",
       title: "The LIHTC Capital Stack: Why Affordable Housing Finance Requires Precision",
       href: "/news/lihtc-capital-stack-affordable-housing",
       category: "Insight",
-      date: "April 2026",
+      date: "August 2025",
       deck:
         "Low-Income Housing Tax Credit projects require careful coordination among equity, debt, public sources, timing, documentation, and compliance.",
       body: [
@@ -916,15 +947,32 @@ export const site = {
         "Precision matters because small timing gaps can become major execution issues. A clear capital strategy helps agencies, lenders, investors, and construction partners understand what must happen next.",
         "For Lighthouse, capital stack coordination is part of development execution, not a separate finance exercise."
       ],
-      image: "/images/about-blueprints-stock.jpg",
-      imageAlt: "Architectural drawings and project documents"
+      image: "/images/news-capital-stack.svg",
+      imageAlt: "Editorial graphic showing layered capital stack blocks"
+    },
+    {
+      slug: "what-makes-affordable-housing-site-work",
+      title: "What Makes an Affordable Housing Site Work",
+      href: "/news/what-makes-affordable-housing-site-work",
+      category: "Guide",
+      date: "May 2025",
+      deck:
+        "Location matters, but feasibility depends on access, infrastructure, approvals, neighborhood context, and the financing path.",
+      body: [
+        "A strong affordable housing site is not defined by acreage alone. It must be evaluated through zoning, access, utilities, environmental conditions, stormwater, parking, building configuration, and the public approvals required to proceed.",
+        "The surrounding context matters as well. Schools, grocery access, pharmacies, transportation, employment centers, parks, and civic services all influence whether a location can support daily resident life.",
+        "Feasibility also has a capital side. A site that works physically may still require the right affordability structure, construction budget, public-sector alignment, and financing timing.",
+        "The best early site reviews are practical. They identify what can be built, what must be solved, and whether the site has a credible path to closing."
+      ],
+      image: "/images/news-site-selection.svg",
+      imageAlt: "Editorial graphic showing a parcel map and location marker"
     },
     {
       slug: "ngbs-energy-star-affordable-housing",
       title: "EnergyStar, NGBS, and Practical Sustainability in Affordable Housing",
       href: "/news/ngbs-energy-star-affordable-housing",
       category: "Insight",
-      date: "April 2026",
+      date: "March 2025",
       deck:
         "Sustainability in affordable housing is most useful when it improves durability, operating performance, and resident comfort.",
       body: [
@@ -933,15 +981,15 @@ export const site = {
         "The key is to avoid treating sustainability as a slogan. Standards must be integrated into design, budget, schedule, construction quality control, and final certification work.",
         "Certification status and performance data should be confirmed after completion, but the planning work begins much earlier."
       ],
-      image: "/images/reserve-eastwood-pool.jpg",
-      imageAlt: "Reserve at Eastwood clubhouse and pool rendering"
+      image: "/images/news-sustainability-performance.svg",
+      imageAlt: "Editorial graphic showing building performance and envelope design"
     },
     {
       slug: "family-sized-affordable-housing-fort-myers",
       title: "Family-Sized Affordable Housing and the Need for Larger Apartment Homes",
       href: "/news/family-sized-affordable-housing-fort-myers",
       category: "Insight",
-      date: "April 2026",
+      date: "January 2025",
       deck:
         "Two-, three-, and four-bedroom affordable homes are an important part of housing supply for working families and larger households.",
       body: [
@@ -950,15 +998,15 @@ export const site = {
         "The development challenge is that larger units carry different cost, design, parking, amenity, and operating considerations. They require careful planning rather than generic unit layouts.",
         "Reserve at Eastwood and Reserve at Franklin Park both include larger apartment homes in their planned unit mix."
       ],
-      image: "/images/reserve-franklin-park-03.jpg",
-      imageAlt: "Reserve at Franklin Park courtyard rendering"
+      image: "/images/news-neighborhood-investment.svg",
+      imageAlt: "Editorial graphic showing housing blocks and neighborhood circulation"
     },
     {
       slug: "resident-amenities-affordable-housing",
       title: "Resident Amenities in Affordable Housing Should Be Useful, Durable, and Easy to Operate",
       href: "/news/resident-amenities-affordable-housing",
       category: "Insight",
-      date: "April 2026",
+      date: "November 2024",
       deck:
         "Amenities should support everyday life and long-term operations, not simply fill a checklist.",
       body: [
@@ -967,15 +1015,15 @@ export const site = {
         "Durability matters as much as design. Amenities should be maintainable, visible, accessible, and integrated into management and security planning.",
         "The result is not excess. It is a more complete community that can support resident life over the long term."
       ],
-      image: "/images/reserve-franklin-park-04.jpg",
-      imageAlt: "Reserve at Franklin Park clubhouse rendering"
+      image: "/images/news-resident-amenities.svg",
+      imageAlt: "Editorial graphic showing clubhouse, recreation, and amenity spaces"
     },
     {
       slug: "landowner-partnership-affordable-housing",
       title: "What Landowners Should Know Before Partnering on an Affordable Housing Site",
       href: "/news/landowner-partnership-affordable-housing",
       category: "Partnerships",
-      date: "April 2026",
+      date: "September 2024",
       deck:
         "A strong site can become more valuable when zoning, infrastructure, public priorities, and financing realities are evaluated together.",
       body: [
@@ -984,15 +1032,15 @@ export const site = {
         "A developer's job is to translate that site information into a realistic development path. That includes understanding public-sector priorities, capital sources, resident needs, and construction feasibility.",
         "When those pieces align, a landowner partnership can move from idea to execution with fewer surprises."
       ],
-      image: "/images/reserve-franklin-park-02.jpg",
-      imageAlt: "Reserve at Franklin Park community rendering"
+      image: "/images/news-site-selection.svg",
+      imageAlt: "Editorial graphic showing site selection and parcel planning"
     },
     {
       slug: "mixed-use-master-planned-communities-long-term-value",
       title: "Mixed-Use and Master-Planned Communities Require More Than a Site Plan",
       href: "/news/mixed-use-master-planned-communities-long-term-value",
       category: "Insight",
-      date: "April 2026",
+      date: "July 2024",
       deck:
         "Long-term value comes from coordinating uses, infrastructure, phasing, capital, and public priorities into a coherent development framework.",
       body: [
@@ -1001,15 +1049,15 @@ export const site = {
         "Capital strategy also matters. Different uses may require different lenders, investors, operators, timelines, and risk tolerances. Development teams need a plan that can coordinate those realities without losing the larger purpose.",
         "For Lighthouse, mixed-use work begins with disciplined site thinking: what belongs where, what can be delivered, and how the result strengthens the surrounding neighborhood."
       ],
-      image: "/images/reserve-eastwood-site-aerial.jpg",
-      imageAlt: "Aerial rendering showing site planning and community layout"
+      image: "/images/news-master-planning.svg",
+      imageAlt: "Editorial graphic showing an abstract master plan"
     },
     {
       slug: "fort-myers-affordable-housing-neighborhood-investment",
       title: "Affordable Housing as Neighborhood Investment in Fort Myers",
       href: "/news/fort-myers-affordable-housing-neighborhood-investment",
       category: "Insight",
-      date: "April 2026",
+      date: "May 2024",
       deck:
         "Well-planned affordable housing can contribute to neighborhood stability, housing access, and long-term civic value.",
       body: [
@@ -1018,22 +1066,22 @@ export const site = {
         "The impact is practical: more housing options, a broader range of apartment sizes, on-site management, amenities that support daily life, and development activity tied to long-term affordability requirements.",
         "As projects advance, final status, delivery timing, and performance information should be confirmed through approved public materials and project-specific updates."
       ],
-      image: "/images/reserve-eastwood-aerial.jpg",
-      imageAlt: "Reserve at Eastwood aerial rendering"
+      image: "/images/news-neighborhood-investment.svg",
+      imageAlt: "Editorial graphic showing neighborhood-scale housing investment"
     }
   ] satisfies NewsArticle[],
   teamPage: {
     hero: {
-      eyebrow: "Team",
-      title: "A senior-led development platform.",
+      eyebrow: "Leadership",
+      title: "Leadership for disciplined real estate execution.",
       description:
-        "Lighthouse combines real estate development, affordable housing finance, construction coordination, and operating technology experience."
+        "The Lighthouse team brings together development, housing finance, capital markets, construction coordination, and operating systems experience to advance complex projects from feasibility through delivery."
     },
     members: [
       {
         name: "Harley Sisler Jr",
         role: "Managing Partner, Co-Founder",
-        image: "/images/team-harley-sisler.png",
+        image: "/images/team-harley-sisler-headshot.jpg",
         imageAlt: "Harley Sisler Jr portrait",
         summary:
           "Real estate developer and capital markets professional with experience across multifamily, hospitality, student housing, and mixed-use development.",
@@ -1048,7 +1096,7 @@ export const site = {
       {
         name: "Sean C. Smith",
         role: "Managing Partner, Co-Founder",
-        image: "/images/team-sean-smith.png",
+        image: "/images/team-sean-smith-headshot.jpg",
         imageAlt: "Sean C. Smith portrait",
         summary:
           "Affordable and workforce housing developer with a background in finance, underwriting, appraisal, and market feasibility.",
@@ -1063,7 +1111,7 @@ export const site = {
       {
         name: "Maxfield Branson",
         role: "Development Operations & Technology",
-        image: "/images/team-maxfield-branson.png",
+        image: "/images/team-maxfield-branson-headshot.jpg",
         imageAlt: "Maxfield Branson portrait",
         summary:
           "Development operations and systems lead supporting project execution, workflow, and organizational technology.",
@@ -1075,8 +1123,7 @@ export const site = {
           "Workflow and technology systems integrated into the LDP platform"
         ]
       }
-    ] satisfies TeamMember[],
-    note: "Leadership photos and biographies are sourced from Lighthouse company materials."
+    ] satisfies TeamMember[]
   },
   contactPage: {
     hero: {

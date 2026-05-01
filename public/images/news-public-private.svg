@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Public private partnership editorial graphic</title>
+  <desc id="desc">Connected civic and capital nodes around a central development parcel.</desc>
+  <rect width="1600" height="1000" fill="#fbfaf7"/>
+  <g stroke="#cbc6b9" stroke-width="2" opacity=".72">
+    <path d="M120 170H1480M120 330H1480M120 490H1480M120 650H1480M120 810H1480M220 90V910M420 90V910M620 90V910M820 90V910M1020 90V910M1220 90V910M1420 90V910"/>
+  </g>
+  <g fill="none" stroke="#3b4c8a" stroke-width="10" stroke-linecap="round">
+    <path d="M800 500 455 285M800 500l345-215M800 500 455 715M800 500l345 215"/>
+  </g>
+  <rect x="625" y="325" width="350" height="350" rx="18" fill="#17224f"/>
+  <path d="M695 590V435h210v155" fill="none" stroke="#fbfaf7" stroke-width="16" stroke-linejoin="round"/>
+  <path d="M735 435V375h130v60M765 590V500h70v90" fill="none" stroke="#b79a56" stroke-width="14" stroke-linejoin="round"/>
+  <g>
+    <rect x="265" y="170" width="340" height="230" rx="14" fill="#f2f0ea" stroke="#cbc6b9" stroke-width="4"/>
+    <rect x="995" y="170" width="340" height="230" rx="14" fill="#f2f0ea" stroke="#cbc6b9" stroke-width="4"/>
+    <rect x="265" y="600" width="340" height="230" rx="14" fill="#f2f0ea" stroke="#cbc6b9" stroke-width="4"/>
+    <rect x="995" y="600" width="340" height="230" rx="14" fill="#f2f0ea" stroke="#cbc6b9" stroke-width="4"/>
+  </g>
+  <g fill="#356874">
+    <circle cx="435" cy="285" r="34"/>
+    <circle cx="1165" cy="285" r="34"/>
+    <circle cx="435" cy="715" r="34"/>
+    <circle cx="1165" cy="715" r="34"/>
+  </g>
+  <g stroke="#b79a56" stroke-width="12" stroke-linecap="round">
+    <path d="M360 335h150M1090 335h150M360 765h150M1090 765h150"/>
+  </g>
+</svg>
