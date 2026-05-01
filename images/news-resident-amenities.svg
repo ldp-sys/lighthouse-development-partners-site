@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Resident amenities editorial graphic</title>
+  <desc id="desc">Amenity plan with clubhouse, pool, recreation, and management spaces.</desc>
+  <rect width="1600" height="1000" fill="#fbfaf7"/>
+  <g stroke="#cbc6b9" stroke-width="3" opacity=".72">
+    <path d="M120 160H1480M120 320H1480M120 480H1480M120 640H1480M120 800H1480M260 100V900M500 100V900M740 100V900M980 100V900M1220 100V900"/>
+  </g>
+  <rect x="215" y="210" width="480" height="335" rx="14" fill="#17224f"/>
+  <path d="M305 465V330h300v135" fill="none" stroke="#fbfaf7" stroke-width="16" stroke-linejoin="round"/>
+  <path d="M390 465v-72h130v72M345 330v-64h220v64" fill="none" stroke="#b79a56" stroke-width="14"/>
+  <rect x="780" y="235" width="560" height="285" rx="145" fill="#356874" opacity=".28"/>
+  <rect x="850" y="300" width="420" height="155" rx="78" fill="#356874"/>
+  <path d="M870 380c70-50 135 50 205 0s135 50 195 0" fill="none" stroke="#fbfaf7" stroke-width="12" stroke-linecap="round" opacity=".86"/>
+  <g fill="#b79a56">
+    <rect x="260" y="655" width="190" height="90" rx="45"/>
+    <rect x="520" y="655" width="190" height="90" rx="45"/>
+    <rect x="780" y="655" width="190" height="90" rx="45"/>
+    <rect x="1040" y="655" width="190" height="90" rx="45"/>
+  </g>
+  <g stroke="#17224f" stroke-width="12" stroke-linecap="round">
+    <path d="M310 700h90M570 700h90M830 700h90M1090 700h90"/>
+  </g>
+</svg>

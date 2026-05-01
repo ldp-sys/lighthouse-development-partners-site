@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">AMI guide editorial graphic</title>
+  <desc id="desc">Income bands and apartment planning lines in a clean editorial layout.</desc>
+  <rect width="1600" height="1000" fill="#f2f0ea"/>
+  <rect x="145" y="125" width="1310" height="750" rx="12" fill="#fbfaf7" stroke="#cbc6b9" stroke-width="4"/>
+  <g fill="#17224f">
+    <rect x="245" y="220" width="210" height="78" rx="6"/>
+    <rect x="245" y="360" width="330" height="78" rx="6"/>
+    <rect x="245" y="500" width="480" height="78" rx="6"/>
+    <rect x="245" y="640" width="620" height="78" rx="6"/>
+  </g>
+  <g fill="#3b4c8a">
+    <rect x="455" y="220" width="180" height="78" rx="6"/>
+    <rect x="575" y="360" width="220" height="78" rx="6"/>
+    <rect x="725" y="500" width="250" height="78" rx="6"/>
+    <rect x="865" y="640" width="300" height="78" rx="6"/>
+  </g>
+  <g fill="#b79a56">
+    <circle cx="1240" cy="259" r="36"/>
+    <circle cx="1240" cy="399" r="36"/>
+    <circle cx="1240" cy="539" r="36"/>
+    <circle cx="1240" cy="679" r="36"/>
+  </g>
+  <g stroke="#cbc6b9" stroke-width="5">
+    <path d="M245 790H1325"/>
+    <path d="M245 180H1325"/>
+  </g>
+  <g stroke="#356874" stroke-width="8" stroke-linecap="round" fill="none">
+    <path d="M1030 245h130M1030 385h130M1030 525h130M1030 665h130"/>
+  </g>
+</svg>
